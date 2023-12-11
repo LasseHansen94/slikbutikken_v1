@@ -1,22 +1,22 @@
 <template lang="">
     <div>
-        <h1>Orders page</h1>
+        <h1>Candy selection</h1>
+        <p>This is a page which shows the wide range of candy selection that we offer. 
+            Add by selecting the "Add" button and see your current basket by clicking on the "basket icon" 
+            on the top right of the page
+        </p>
 
-        <Basket />
         <Selection />
-
     </div>
 </template>
 
 <script>
-import Basket from "../components/Basket.vue"
 import Selection from "../components/Selection.vue"
 
 export default {
     name: "Home",
 
     components: {
-        Basket,
         Selection
     },
 

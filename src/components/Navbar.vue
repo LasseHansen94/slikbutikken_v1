@@ -1,55 +1,90 @@
-<template lang="">
-    <div>
-        
+<template>
+    <div class="navbar">
         <nav>
-            <router-link to="/" class="nav-link">
-                <button class="nav-button">Home</button>
-            </router-link>
-            <router-link to="/orders" class="nav-link">
-                <button class="nav-button">Orders</button>
-            </router-link>
-            <router-link to ="/contact" class="nav-link">
-                <button class="nav-button">contact</button>
-            </router-link>
+            <div class="nav-links">
+                <h1 style="color: white;"> Slikbutikken</h1>
+                <router-link to="/" class="nav-link">
+                    <button class="nav-button">Home</button>
+                </router-link>
+                <router-link to="/selection" class="nav-link">
+                    <button class="nav-button">Selection</button>
+                </router-link>
+                <router-link to="/contact" class="nav-link">
+                    <button class="nav-button">Contact</button>
+                </router-link>
+            </div>
 
+            <div style="margin-right: 20px;" class="basket-container">
+                <img class="basket_icon" @click="showPopup = true" src="../assets/icons/basket_empty.png" alt="Basket icon">
+                <Basket :isVisible="showPopup" @close="showPopup = false"></Basket>
+            </div>
         </nav>
     </div>
 </template>
 
 <script>
+import Basket from './Basket.vue';
+
 export default {
-    
+    components: {
+        Basket
+    },
+    data() {
+        return {
+            showPopup: false
+        };
+    },
+    methods: {
+
+    },
 }
 </script>
 
-<style lang="css">
-nav {
-    margin: 0;
-    padding: 0;
-    position: sticky;
-    background-color: beige;
-    border: 1px solid;
-    padding: 10px;
-    border-color: black;
-    color: aqua;
-    margin-right: 20px;
+<style >
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #333; /* Change navbar background color as needed */
+  
 }
 
-.nav-button {
-    color: white;
-    background-color: rgb(73, 128, 0);
-    border: 1px solid black;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 10px;
-} </style>
-
-.nav-link {
-    text-decoration: none; /* Tilføjet for at fjerne standard understregning af links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin-left: 20px;
 }
 
-/* Tilføj en hover-effek
+.nav-link .nav-button {
+  background-color: #555; /* Button background color */
+  border: none;
+  color: white; /* Button text color */
+  cursor: pointer;
+  padding: 10px 20px; /* Padding inside the buttons */
+  border-radius: 5px; /* Rounded corners for buttons */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-link .nav-button:hover {
+  background-color: #777; /* Button background color on hover */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.basket_icon {
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 50%; /* Circular rounded corners for the basket icon */
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.basket_icon:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+</style>

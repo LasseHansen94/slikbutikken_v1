@@ -1,7 +1,7 @@
-<template lang="">
-  <div>
+<template>
+  <div class="app-container">
     <Navbar/>
-    <router-view />
+    <router-view class="router-view" />
   </div>
 </template>
 
@@ -22,16 +22,30 @@ export default {
   setup() {
     console.log("App.vue loaded successfully!");
     const { basketState, addToBasket } = basket;
-    return {basketState, addToBasket};
+    return { basketState, addToBasket };
   },
 
   methods: {
-    
+
   }
-  
+
 }
 </script>
 
-<style lang="css">
-  
+<style>
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.router-view {
+  margin: 20px;
+}
+
 </style>
