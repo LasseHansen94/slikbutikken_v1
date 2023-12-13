@@ -5,7 +5,11 @@
         <!-- 
             /** 
              * TODO: Show more item information
-             * TODO: Add a quantity number input field
+             *      ! Use css to make it look better.
+             * TODO: Add a quantity number input field with min. and max. numbers.
+             *      ! Make sure the user can't input letters or symbols
+             *      ! Make sure the user can't select more than item.stock
+             *      ! Make sure the user can't select less than item.minimum_weight
             */
         -->
         <li v-for="item in selection"> <!-- This will create one list with a new <div> for each item in the list -->
@@ -33,15 +37,20 @@ export default {
         }
     },
     methods: {
-        
+
         addItemToBasket(item, quantity) {
 
             /**
             * TODO: Check that 'quantity' can be converted to a number, otherwise throw error.
             */
+            // try {
+
+            // } catch (error) {
+
+            // }
 
             // Checks that quantity is not less than minimum quantity and is not more that current stock.
-            if(item.minimum_weight < quantity && item.stock > quantity) {
+            if (item.minimum_weight < quantity && item.stock > quantity) {
                 item.quantity = quantity;
                 this.addToBasket(item)
             } else {
@@ -81,7 +90,7 @@ export default {
     },
 
     mounted() {
-        
+
         // Henter alle "documents" / element i "selection" collectionen
         db.collection("selection")
             .get()

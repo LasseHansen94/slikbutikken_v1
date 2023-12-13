@@ -1,4 +1,4 @@
-vue <template lang="">
+<template lang="">
     <div>
         <h1>
             My basket
@@ -45,13 +45,11 @@ export default {
         /** 
          * TODO: Add new database document in firebase with order details
         */
-        addOrderToDatabase(){
-            
+        addOrderToDatabase() {
+
         },
     },
 }
 </script>
 
-<style>
-    
-</style>
+<style></style>
