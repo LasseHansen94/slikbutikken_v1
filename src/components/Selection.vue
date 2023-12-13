@@ -1,11 +1,24 @@
 <template lang="">
     <div>
         <h2>Selections</h2>
-        <li v-for="item in selection"> 
-            <p> {{ item.name }} </p>
-            <img :src="item.image" alt="Descriptive Alt Text" style="width: 100px; height: auto;">
-            <button @click="addToBasket(item)"> Add </button>
-         </li>
+
+        <!-- 
+            /** 
+             * TODO: Show more item information
+             * TODO: Add a quantity number input field
+            */
+        -->
+        <li v-for="item in selection"> <!-- This will create one list with a new <div> for each item in the list -->
+            <div> <!-- Will create one of these for each item in the list. Each "item" will be an individual candy option -->
+                <p> {{ item.name }} </p>
+                <img :src="item.image" alt="Descriptive Alt Text" style="width: 100px; height: auto;">
+                <button @click="addToBasket(item)"> Add </button>
+
+                <p> Item: {{ item }} item  </p>
+            </div>
+        </li>
+
+
     </div>
 </template>
 <script>
@@ -20,6 +33,24 @@ export default {
         }
     },
     methods: {
+        
+        addItemToBasket(item, quantity) {
+
+            /**
+            * TODO: Check that 'quantity' can be converted to a number, otherwise throw error.
+            */
+
+            // Checks that quantity is not less than minimum quantity and is not more that current stock.
+            if(item.minimum_weight < quantity && item.stock > quantity) {
+                item.quantity = quantity;
+                this.addToBasket(item)
+            } else {
+                /**
+                * TODO: Return error message to client and don't add to basket.
+                */
+            }
+
+        },
 
         addToDatabase() { // Eksempel på hvordan du kan tilføje en ny ting til en firebase database
             // Create a reference to the 'categories/vingummi' document
@@ -29,7 +60,7 @@ export default {
                 .add({
                     name: `Sukker lakrids`,
                     price: `12`,
-                    weight: `14`,
+                    minimum_weight: `14`,
                     stock: `1400`,
                     category: categoryRef // Add the reference here
 
@@ -57,6 +88,8 @@ export default {
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => { // For hvert "dokument" / element i denne collection (selection) gør vi følgende. 
 
+                    console.log(doc)
+
                     // Vi starter med at få fat i billedets download URL.
 
                     // Det gør vi ved først at skabe denne reference baseret på det billede storage location som er gemt i dokumentets variabel doc.data().category.image
@@ -67,10 +100,11 @@ export default {
                     storageRef.getDownloadURL(storageRef)
                         .then((url) => { // Når vi har modtaget url'en kører vi denne lambda funktion for at tilføje alle værdierne til en object som vi efterfølgende tilføjer til listen
                             this.selection.push({
+                                id: doc.id,
                                 name: doc.data().name,
                                 price: doc.data().price,
                                 stock: doc.data().stock,
-                                weight: doc.data().weight,
+                                minimum_weight: doc.data().minimum_weight,
                                 category: doc.data().category.path,
                                 image: url, // Download url til billedet
                             });
