@@ -13,6 +13,7 @@ export default {
 
     methods: {
         /** 
+         * 
          * TODO: Add a function which adds the current order from basket.js
         */
 
