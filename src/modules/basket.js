@@ -29,5 +29,7 @@ const addToBasket = (item) => {
 
 export default {
     basketState: readonly(basketState),
-    addToBasket
+    addToBasket,
+    // modifyBasket,
+    // removeFromBasket,
 };

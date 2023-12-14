@@ -21,18 +21,16 @@ export default {
     },
 
     methods: {
-      
+
     },
 
     data() {
         return {
-              
+
         }
     },
 
 }
 </script>
 
-<style lang="css">
-    
-</style>
+<style lang="css"></style>

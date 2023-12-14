@@ -42,49 +42,59 @@ export default {
 
 <style >
 .navbar nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 10px;
-  background-color: #333; /* Change navbar background color as needed */
-  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    /* Change navbar background color as needed */
+
 }
 
 .nav-links {
-  display: flex;
-  gap: 20px;
-  margin-left: 20px;
+    display: flex;
+    gap: 20px;
+    margin-left: 20px;
 }
 
 .nav-link .nav-button {
-  background-color: #555; /* Button background color */
-  border: none;
-  color: white; /* Button text color */
-  cursor: pointer;
-  padding: 10px 20px; /* Padding inside the buttons */
-  border-radius: 5px; /* Rounded corners for buttons */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+    background-color: #555;
+    /* Button background color */
+    border: none;
+    color: white;
+    /* Button text color */
+    cursor: pointer;
+    padding: 10px 20px;
+    /* Padding inside the buttons */
+    border-radius: 5px;
+    /* Rounded corners for buttons */
+    transition: background-color 0.3s;
+    /* Smooth transition for hover effect */
 }
 
 .nav-link .nav-button:hover {
-  background-color: #777; /* Button background color on hover */
+    background-color: #777;
+    /* Button background color on hover */
 }
 
 .nav-right {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .basket_icon {
-  width: 50px;
-  height: auto;
-  cursor: pointer;
-  border-radius: 50%; /* Circular rounded corners for the basket icon */
-  transition: transform 0.3s; /* Smooth transition for hover effect */
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 50%;
+    /* Circular rounded corners for the basket icon */
+    transition: transform 0.3s;
+    /* Smooth transition for hover effect */
 }
 
 .basket_icon:hover {
-  transform: scale(1.1); /* Slightly increase size on hover */
+    transform: scale(1.1);
+    /* Slightly increase size on hover */
 }
 </style>

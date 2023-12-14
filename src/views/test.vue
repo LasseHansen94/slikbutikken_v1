@@ -1,16 +1,16 @@
 <template>
     <div>
-      
+
     </div>
-  </template>
+</template>
   
-  <script>
-  import MinVueKomponent from '@/stier/MinVueKomponent.vue';
-  
-  export default {
+<script>
+import MinVueKomponent from '@/stier/MinVueKomponent.vue';
+
+export default {
     components: {
-      MinVueKomponent
+        MinVueKomponent
     }
-  };
-  </script>
+};
+</script>
   
