@@ -74,7 +74,7 @@ export default {
                     category: categoryRef // Add the reference here
 
                 })
-                .then(() => {
+                .then((response) => {
                     console.log("Document successfully written!");
                 })
                 .catch((error) => {

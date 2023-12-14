@@ -16,18 +16,18 @@
 
             <div style="margin-right: 20px;" class="basket-container">
                 <img class="basket_icon" @click="showPopup = true" src="../assets/icons/basket_empty.png" alt="Basket icon">
-                <Basket :isVisible="showPopup" @close="showPopup = false"></Basket>
+                <Popup :isVisible="showPopup" @close="showPopup = false"></Popup>
             </div>
         </nav>
     </div>
 </template>
 
 <script>
-import Basket from './Basket.vue';
+import Popup from './Popup.vue';
 
 export default {
     components: {
-        Basket
+        Popup
     },
     data() {
         return {

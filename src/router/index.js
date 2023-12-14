@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ContactView from '../views/ContactView.vue'
 import SelectionView from '../views/SelectionView.vue'
 import BasketView from '../views/BasketView.vue'
+import OrderConfirmationView from '../views/OrderConfirmationView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/basket',
       name: 'basket',
       component: BasketView
+    },
+    {
+      path: '/orderConfirmation',
+      name: 'orderConfirmation',
+      component: OrderConfirmationView
     },
     
   ]

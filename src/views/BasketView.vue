@@ -1,54 +1,30 @@
-<template lang="">
+<template>
     <div>
         <h1>
             My basket
         </h1>
-        <p> Here there will be a lot of items in your basket </p>
+
+        <Basket />
+        
+        <OrderProcess />
     </div>
 </template>
 
 <script>
+import Basket from "../components/Basket.vue"
+import OrderProcess from "../components/OrderProcess.vue";
+
 export default {
-    name: "Basket",
+    name: "BasketView",
+
+    components: {
+        Basket,
+        OrderProcess
+    },
+
 
     methods: {
-        /** 
-         * 
-         * TODO: Add a function which adds the current order from basket.js
-        */
-
-        /** 
-         * TODO: Validate user input like, 
-         *      * Email, (Use regex)
-         *      * Phone, (Should not include letters and symbols)
-         *      * Name, (Should not include numbers or random symbols)
-         *      * Address, 
-         *      * Payment details. (Use credit card number formula)
-        */
-        validateData() {
-
-        },
-
-        /** 
-         * TODO: Modify 'selection.stock' with updated stock quantity 
-        */
-        updateItemStock() {
-
-        },
-
-        /** 
-         * TODO: Inform user about successful order, (Could be by email or order confirmation page)
-        */
-        successfulOrder() {
-
-        },
-
-        /** 
-         * TODO: Add new database document in firebase with order details
-        */
-        addOrderToDatabase() {
-
-        },
+        
     },
 }
 </script>
