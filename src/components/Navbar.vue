@@ -1,24 +1,26 @@
 <template>
     <div class="navbar">
-        <nav>
-            <div class="nav-links">
-                <h1 style="color: white;"> Slikbutikken</h1>
-                <router-link to="/" class="nav-link">
-                    <button class="nav-button">Home</button>
-                </router-link>
-                <router-link to="/selection" class="nav-link">
-                    <button class="nav-button">Selection</button>
-                </router-link>
-                <router-link to="/contact" class="nav-link">
-                    <button class="nav-button">Contact</button>
-                </router-link>
-            </div>
 
-            <div style="margin-right: 20px;" class="basket-container">
-                <img class="basket_icon" @click="showPopup = true" src="../assets/icons/basket_empty.png" alt="Basket icon">
-                <Popup :isVisible="showPopup" @close="showPopup = false"></Popup>
-            </div>
-        </nav>
+        <div class="nav-links">
+            <router-link to="/" class="nav-link">
+                <button class="nav-button">Home</button>
+            </router-link>
+            <router-link to="/about" class="nav-link">
+                <button class="nav-button">About Us</button>
+            </router-link>
+            <router-link to="/selection" class="nav-link">
+                <button class="nav-button">Selection</button>
+            </router-link>
+            <router-link to="/contact" class="nav-link">
+                <button class="nav-button">Contact</button>
+            </router-link>
+
+
+        </div>
+        <div class="basket-container">
+            <img class="basket_icon" @click="showPopup = true" src="../assets/icons/basket_empty.png" alt="Basket icon">
+            <Popup :isVisible="showPopup" @close="showPopup = false" />
+        </div>
     </div>
 </template>
 
@@ -41,21 +43,25 @@ export default {
 </script>
 
 <style >
-.navbar nav {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 10px;
     background-color: #333;
-    /* Change navbar background color as needed */
-
 }
 
 .nav-links {
     display: flex;
     gap: 20px;
     margin-left: 20px;
+}
+
+.basket-container {
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
 }
 
 .nav-link .nav-button {
@@ -78,10 +84,6 @@ export default {
     /* Button background color on hover */
 }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-}
 
 .basket_icon {
     width: 50px;

@@ -1,0 +1,14 @@
+<template lang="">
+    <div>
+        <h1>Her finder du os:</h1>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2250.3795411389465!2d12.54256907615486!3d55.66499989875141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652539d9fc33167%3A0x9fe3aa5d21c772ca!2sR%C3%B8ddinggade%208%2C%201735%20K%C3%B8benhavn!5e0!3m2!1sen!2sdk!4v1702901296096!5m2!1sen!2sdk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</template>
+<script>
+export default {
+    
+}
+</script>
+<style lang="">
+    
+</style>

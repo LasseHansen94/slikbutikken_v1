@@ -15,6 +15,8 @@
         <p>
             {{ customer }}
         </p>
+
+
         <div v-if="step == 1">
             <h1>Step 1: Customer information</h1>
             <div>
@@ -22,20 +24,17 @@
 
                 <div>
                     <p> Full name </p>
-                    <input v-model="customer.personal.name">
+                    <input v-model="customer.customerInformation.name">
                 </div>
                 <div>
                     <p> Phone </p>
-                    <input v-model="customer.personal.phone">
+                    <input v-model="customer.customerInformation.phone">
                 </div>
                 <div>
                     <p> email </p>
-                    <input v-model="customer.personal.email">
+                    <input v-model="customer.customerInformation.email">
                 </div>
-
-
             </div>
-
 
             <div>
                 <button type="button" @click="validateDataCustomer()">Next</button>
@@ -56,15 +55,15 @@
 
                 <div>
                     <p> Street and number </p>
-                    <input v-model="customer.address.street">
+                    <input v-model="customer.deliveryDetails.address">
                 </div>
                 <div>
                     <p> City </p>
-                    <input v-model="customer.address.city">
+                    <input v-model="customer.deliveryDetails.city">
                 </div>
                 <div>
                     <p> Postal code </p>
-                    <input v-model="customer.address.postalCode">
+                    <input v-model="customer.deliveryDetails.postalCode">
                 </div>
 
 
@@ -91,11 +90,11 @@
 
                 <div>
                     <p> Cardnumber </p>
-                    <input v-model="customer.paymentDetails.name">
+                    <input v-model="customer.paymentDetails.cardNumber">
                 </div>
                 <div>
                     <p> Security code </p>
-                    <input v-model="customer.paymentDetails.phone">
+                    <input v-model="customer.paymentDetails.securityCode">
                 </div>
                 <div>
                     <p> Expirey date </p>
@@ -128,6 +127,7 @@
 
 <script>
 import basket from "../modules/basket";
+import { db } from "../firebase.config.js";
 
 export default {
 
@@ -137,25 +137,25 @@ export default {
         return {
             step: 1,
             customer: {
-                personal: {
-                    name: "",
-                    phone: "",
-                    email: "",
+                customerInformation: {
+                    name: "Test user",
+                    phone: "22334455",
+                    email: "testemail@email.com",
                 },
 
-                address: {
-                    street: "",
-                    city: "",
-                    postalCode: "",
+                deliveryDetails: {
+                    address: "Test street 23",
+                    city: "Test city",
+                    postalCode: "2400",
                     country: "DK",
                 },
 
                 paymentDetails: {
-                    cardNumber: "",
-                    securityCode: "",
+                    cardNumber: "2233445588775533",
+                    securityCode: "641",
                     expDate: {
-                        month: "",
-                        year: "",
+                        month: "11",
+                        year: "22",
                     },
                 }
             },
@@ -169,18 +169,7 @@ export default {
          * This is the first step which sets the whole order process,
         */
 
-        /** 
-         * TODO: Validate user input like, 
-         *      
-         * 
-         *      * Address, 
-         * 
-         *      * Payment details. (Use credit card number formula)
-        */
-
         validateDataCustomer() {
-
-            var success = false
 
             /** 
              * TODO: Validate information below
@@ -189,37 +178,23 @@ export default {
              * Name, (Should not include numbers or random symbols)
             */
 
-            if (! /^\S+@\S+\.\S+$/.test(this.customer.personal.email)) {
+            if (! /^\S+@\S+\.\S+$/.test(this.customer.customerInformation.email)) {
                 console.log("Error in email validation");
                 return false;
-            } else if (! /^\d{8}$/.test(this.customer.personal.phone)) {
+            } else if (! /^\d{8}$/.test(this.customer.customerInformation.phone)) {
                 console.log("Error in phone validation");
                 return false;
-            } else if (! /^[a-zA-Z-]+(?:\s[a-zA-Z-]+)*(?:\s[a-zA-Z-]+)?$/.test(this.customer.personal.name)) {
+            } else if (! /^[a-zA-Z-]+(?:\s[a-zA-Z-]+)*(?:\s[a-zA-Z-]+)?$/.test(this.customer.customerInformation.name)) {
                 console.log("Error in name validation");
                 return false;
             } else {
                 // Everything was fine
-                success = true
-            }
-
-
-            if (success) {
-
-                // Information is correct, go to next step.
                 this.step = 2;
-
-            } else {
-                /** 
-                 * TODO: Inform user about error in information
-                */
             }
 
         },
 
         validateDataDelivery() {
-            var success = false
-
             /** 
              * TODO: Validate information below
              * Address
@@ -235,31 +210,15 @@ export default {
                 return false;
             } else {
                 // Everything was fine
-                success = true
-            }
-
-            if (success) {
-
-                // Information is correct, go to next step.
                 this.step = 3;
-
-            } else {
-                /** 
-                 * TODO: Inform user about error in information
-                */
             }
-
         },
 
-        validateDataPayment() {
-
-            var success = false
-
+        async validateDataPayment() {
             /** 
              * TODO: Validate information below
              * Address
             */
-
 
             if (! "REPLACE THIS WITH REGEX LIKE ABOVE") {
                 console.log("Error in cardNumber validation");
@@ -272,73 +231,153 @@ export default {
                 return false;
             } else {
                 // Everything was fine
-                success = true
-            }
-
-            if (success) {
-                console.log("Test 1")
                 // Information is correct, add order to database.
-                this.addOrderToDatabase();
 
-            } else {
-                /** 
-                 * TODO: Inform user about error in information
-                */
+                // Get the current order number
+                var currentOrderNumber = await this.getCurrentOrderNumber();
+
+                // Increase it by one and save the new order number to a new variable
+                var newOrderNumber = currentOrderNumber + 1;
+
+                // Update the firebase database with the new order number
+                this.updateOrderNumber(newOrderNumber);
+
+                // This function creates the full order document and sends it to firebase.
+                this.addOrderToDatabase(newOrderNumber);
             }
+
+        },
+
+        // Gets current order number from firebase
+        async getCurrentOrderNumber() {
+            try {
+                // Use the async/await to pause the process until the promise is finished and we have the data from firebase
+                const doc = await db.collection("orders").doc("orderNumber").get();
+                if (doc.exists) {
+                    // Return the result of the promise / database request.
+                    return doc.data().orderNumber; // Return the document data
+                } else {
+                    console.log("No such document!");
+                    return null; // Return null or some default value
+                }
+            } catch (error) {
+                console.log("Error getting documents: ", error);
+                throw error; // Re-throw the error to handle it in the caller function
+            }
+        },
+
+        // Update the firebase database with the newest used order number
+        async updateOrderNumber(newOrderNumber) {
+            try {
+
+                // Creates a reference to the firebase document "orderNumber" in the "orders" collection
+                const orderNumberDoc = db.collection("orders").doc("orderNumber");
+                // Perform the update
+                // Update the value witht the parsed ordernumber.
+                await orderNumberDoc.update({ orderNumber: newOrderNumber });
+
+                console.log(`Order number updated to: ${newOrderNumber}`);
+                return; // Return the updated order number
+
+            } catch (error) {
+                console.log("Error updating order number: ", error);
+                throw error; // Re-throw the error to handle it
+            };
         },
 
         /** 
          * TODO: Add new database document in firebase with order details
         */
-        addOrderToDatabase() {
-
+        addOrderToDatabase(newOrderNumber) {
             console.log("Sending data to database")
+
+            /**          
+            {
+                customer (map) {
+                    customerInformation (map) {
+                        email "rasmus.email@email.com" (string),
+                        name "Rasmus Lykke" (string),
+                        phone "20132145" (string),
+                    },
+                    deliveryDetails (map) {
+                        address "Main street 8" (string),
+                        city "Aarhus" (string),
+                        country "DK" (string),
+                        postalCode 3510 (number),
+                    },
+                    paymentDetails (map) {
+                        cardNumber 125015435942 (number),
+                        expDate (map) {
+                            month 12 (number),
+                            year 13 (number),
+                        },
+                        securityCode 354 (number),
+                    },
+                },
+                orderDetails (map) {
+                    Rl3iVrdWxJZ7XGNZfJXa (map) {
+                        quantity 200 (number),
+                        selection /selection/Rl3iVrdWxJZ7XGNZfJXa (reference),
+                    },
+                    mBHOAbI5dYLNqDD4C6kb (map),
+                    quantity 150 (number),
+                    selection /selection/mBHOAbI5dYLNqDD4C6kb (reference),
+                },
+                orderNumber "0000000000" 
+            }
+            */
+            let order = {
+                orderId: newOrderNumber, // Assuming newOrderNumber is defined elsewhere in your code
+                orderDetails: this.basketState.basket.reduce((acc, item) => {
+                    acc[item.id] = {
+                        quantity: item.quantity, // Assuming each item in basket has a quantity property
+                        selection: db.doc(`/selection/${item.id}`) // Creating a Firestore reference
+                    };
+                    return acc;
+                }, {}),
+                customerDetails: {
+                    customerInformation: {
+                        name: this.customer.customerInformation.name,
+                        phone: this.customer.customerInformation.phone,
+                        email: this.customer.customerInformation.email
+                    },
+                    deliveryDetails: {
+                        address: this.customer.deliveryDetails.address,
+                        city: this.customer.deliveryDetails.city,
+                        postalCode: parseInt(this.customer.deliveryDetails.postalCode),
+                        country: this.customer.deliveryDetails.country
+                    },
+                    paymentDetails: {
+                        cardNumber: parseInt(this.customer.paymentDetails.cardNumber),
+                        securityCode: parseInt(this.customer.paymentDetails.securityCode),
+                        expDate: {
+                            month: parseInt(this.customer.paymentDetails.expDate.month),
+                            year: parseInt(this.customer.paymentDetails.expDate.year)
+                        }
+                    }
+                }
+            }
             db.collection("orders")
-                .add({
-                    orderId: "",
-                    orderDetails: JSON.stringify(this.basketState.basket),
-                    customerDetails: JSON.stringify(this.customer),
-                })
+                .add(order)
                 .then((response) => {
+                    this.successfulOrder(order);
                     console.log("Document successfully written!", response);
                 })
                 .catch((error) => {
                     console.error("Error writing document: ", error);
                 });
-
-            /** 
-             * TODO: Check if data was successfully sent to database, if yes send customer to success page. Else inform customer about error. 
-            */
-
-            // send data and recieve data from firebase
-            if (orderDocumentDetails) {
-                // Database update was successful
-
-                // First update new stock in database and receive data from firebase.
-                if (stockUpdateSuccessfull) {
-                    // Data was successfully updated in database.
-                    this.successfulOrder(orderDocumentDetails);
-                } else {
-                    // Data was not succesfully updated in database
-                    console.log("Error!!!!!!");
-
-                }
-
-            } else {
-                // Order was unsuccessful, inform customer.
-            }
         },
 
         /** 
          * TODO: Inform user about successful order, (Could be by email or order confirmation page)
         */
-        successfulOrder(orderDocumentDetails) {
+        successfulOrder(order) {
             /** 
              * TODO:  Send email to customer with orderDocumentDetails.orderID
             */
 
             // Redirect cutomer to successful order page.
-            this.$router.push({ name: 'orderConfirmation', query: { orderDocumentDetails: JSON.stringify(orderDocumentDetails) } });
+            this.$router.push({ name: 'orderConfirmation', query: { orderDocumentDetails: JSON.stringify(order) } });
 
         },
 
@@ -347,7 +386,7 @@ export default {
     setup() {
         const { basketState } = basket;
 
-        return { basketState};
+        return { basketState };
     },
 
 
