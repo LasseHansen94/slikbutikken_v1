@@ -13,10 +13,11 @@
             */
         -->
         <ul class="items-container">
-            <li v-for="item in selection">
+            <li v-for="item in selection" class="outer-box">
                 <div class="item">
                     <div class="item-name">
                         <p> {{ item.name }} </p>
+                        <p>pris per 100 gram: {{item.price}}</p>
                     </div>
 
                     <div class="item-image">
@@ -213,6 +214,9 @@ export default {
     /* Spacing inside the item */
 }
 
+.outer-box{
+    
+}
 .add-to-basket button {
     background-color: #4CAF50;
     /* Button color */
@@ -232,6 +236,7 @@ export default {
     background-color: #45a049;
     /* Button hover effect */
 }
+
 
 .order-quantity input[type="number"] {
     width: 60%;
@@ -286,3 +291,4 @@ button:disabled {
     cursor: not-allowed;
 }
 </style>
+.
