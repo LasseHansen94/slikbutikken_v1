@@ -329,8 +329,12 @@ export default {
             let order = {
                 orderId: newOrderNumber, // Assuming newOrderNumber is defined elsewhere in your code
                 orderDetails: this.basketState.basket.reduce((acc, item) => {
+                    console.log("ITEMNAME:: ", item);
                     acc[item.id] = {
                         quantity: item.quantity, // Assuming each item in basket has a quantity property
+                        name: item.name,
+                        price: item.price,
+                        image: item.image,
                         selection: db.doc(`/selection/${item.id}`) // Creating a Firestore reference
                     };
                     return acc;

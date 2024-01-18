@@ -1,0 +1,533 @@
+{
+    "orderId": 148,
+    "orderDetails": {
+        "Rl3iVrdWxJZ7XGNZfJXa": {
+            "quantity": 80,
+            "selection": {
+                "firestore": {
+                    "_delegate": {
+                        "app": {
+                            "_isDeleted": false,
+                            "_options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            },
+                            "_config": {
+                                "name": "[DEFAULT]",
+                                "automaticDataCollectionEnabled": false
+                            },
+                            "_name": "[DEFAULT]",
+                            "_automaticDataCollectionEnabled": false,
+                            "_container": {
+                                "name": "[DEFAULT]",
+                                "providers": {}
+                            }
+                        },
+                        "databaseId": {
+                            "projectId": "slikbutik",
+                            "database": "(default)"
+                        },
+                        "settings": {
+                            "host": "firestore.googleapis.com",
+                            "ssl": true,
+                            "ignoreUndefinedProperties": false,
+                            "cacheSizeBytes": 41943040,
+                            "experimentalForceLongPolling": false,
+                            "experimentalAutoDetectLongPolling": true,
+                            "experimentalLongPollingOptions": {},
+                            "useFetchStreams": true
+                        }
+                    },
+                    "_persistenceProvider": {},
+                    "INTERNAL": {},
+                    "_appCompat": {
+                        "name": "[DEFAULT]",
+                        "automaticDataCollectionEnabled": false,
+                        "options": {
+                            "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                            "authDomain": "slikbutik.firebaseapp.com",
+                            "databaseURL": "https://slikbutik.firebasedatabase.app",
+                            "projectId": "slikbutik",
+                            "storageBucket": "slikbutik.appspot.com",
+                            "messagingSenderId": "1034395634412",
+                            "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                        }
+                    }
+                },
+                "_delegate": {
+                    "converter": null,
+                    "_key": {
+                        "path": {
+                            "segments": [
+                                "selection",
+                                "Rl3iVrdWxJZ7XGNZfJXa"
+                            ],
+                            "offset": 0,
+                            "len": 2
+                        }
+                    },
+                    "type": "document",
+                    "firestore": {
+                        "app": {
+                            "_isDeleted": false,
+                            "_options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            },
+                            "_config": {
+                                "name": "[DEFAULT]",
+                                "automaticDataCollectionEnabled": false
+                            },
+                            "_name": "[DEFAULT]",
+                            "_automaticDataCollectionEnabled": false,
+                            "_container": {
+                                "name": "[DEFAULT]",
+                                "providers": {}
+                            }
+                        },
+                        "databaseId": {
+                            "projectId": "slikbutik",
+                            "database": "(default)"
+                        },
+                        "settings": {
+                            "host": "firestore.googleapis.com",
+                            "ssl": true,
+                            "ignoreUndefinedProperties": false,
+                            "cacheSizeBytes": 41943040,
+                            "experimentalForceLongPolling": false,
+                            "experimentalAutoDetectLongPolling": true,
+                            "experimentalLongPollingOptions": {},
+                            "useFetchStreams": true
+                        }
+                    }
+                },
+                "_userDataWriter": {
+                    "firestore": {
+                        "_delegate": {
+                            "app": {
+                                "_isDeleted": false,
+                                "_options": {
+                                    "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                    "authDomain": "slikbutik.firebaseapp.com",
+                                    "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                    "projectId": "slikbutik",
+                                    "storageBucket": "slikbutik.appspot.com",
+                                    "messagingSenderId": "1034395634412",
+                                    "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                                },
+                                "_config": {
+                                    "name": "[DEFAULT]",
+                                    "automaticDataCollectionEnabled": false
+                                },
+                                "_name": "[DEFAULT]",
+                                "_automaticDataCollectionEnabled": false,
+                                "_container": {
+                                    "name": "[DEFAULT]",
+                                    "providers": {}
+                                }
+                            },
+                            "databaseId": {
+                                "projectId": "slikbutik",
+                                "database": "(default)"
+                            },
+                            "settings": {
+                                "host": "firestore.googleapis.com",
+                                "ssl": true,
+                                "ignoreUndefinedProperties": false,
+                                "cacheSizeBytes": 41943040,
+                                "experimentalForceLongPolling": false,
+                                "experimentalAutoDetectLongPolling": true,
+                                "experimentalLongPollingOptions": {},
+                                "useFetchStreams": true
+                            }
+                        },
+                        "_persistenceProvider": {},
+                        "INTERNAL": {},
+                        "_appCompat": {
+                            "name": "[DEFAULT]",
+                            "automaticDataCollectionEnabled": false,
+                            "options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "mBHOAbI5dYLNqDD4C6kb": {
+            "quantity": 60,
+            "selection": {
+                "firestore": {
+                    "_delegate": {
+                        "app": {
+                            "_isDeleted": false,
+                            "_options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            },
+                            "_config": {
+                                "name": "[DEFAULT]",
+                                "automaticDataCollectionEnabled": false
+                            },
+                            "_name": "[DEFAULT]",
+                            "_automaticDataCollectionEnabled": false,
+                            "_container": {
+                                "name": "[DEFAULT]",
+                                "providers": {}
+                            }
+                        },
+                        "databaseId": {
+                            "projectId": "slikbutik",
+                            "database": "(default)"
+                        },
+                        "settings": {
+                            "host": "firestore.googleapis.com",
+                            "ssl": true,
+                            "ignoreUndefinedProperties": false,
+                            "cacheSizeBytes": 41943040,
+                            "experimentalForceLongPolling": false,
+                            "experimentalAutoDetectLongPolling": true,
+                            "experimentalLongPollingOptions": {},
+                            "useFetchStreams": true
+                        }
+                    },
+                    "_persistenceProvider": {},
+                    "INTERNAL": {},
+                    "_appCompat": {
+                        "name": "[DEFAULT]",
+                        "automaticDataCollectionEnabled": false,
+                        "options": {
+                            "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                            "authDomain": "slikbutik.firebaseapp.com",
+                            "databaseURL": "https://slikbutik.firebasedatabase.app",
+                            "projectId": "slikbutik",
+                            "storageBucket": "slikbutik.appspot.com",
+                            "messagingSenderId": "1034395634412",
+                            "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                        }
+                    }
+                },
+                "_delegate": {
+                    "converter": null,
+                    "_key": {
+                        "path": {
+                            "segments": [
+                                "selection",
+                                "mBHOAbI5dYLNqDD4C6kb"
+                            ],
+                            "offset": 0,
+                            "len": 2
+                        }
+                    },
+                    "type": "document",
+                    "firestore": {
+                        "app": {
+                            "_isDeleted": false,
+                            "_options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            },
+                            "_config": {
+                                "name": "[DEFAULT]",
+                                "automaticDataCollectionEnabled": false
+                            },
+                            "_name": "[DEFAULT]",
+                            "_automaticDataCollectionEnabled": false,
+                            "_container": {
+                                "name": "[DEFAULT]",
+                                "providers": {}
+                            }
+                        },
+                        "databaseId": {
+                            "projectId": "slikbutik",
+                            "database": "(default)"
+                        },
+                        "settings": {
+                            "host": "firestore.googleapis.com",
+                            "ssl": true,
+                            "ignoreUndefinedProperties": false,
+                            "cacheSizeBytes": 41943040,
+                            "experimentalForceLongPolling": false,
+                            "experimentalAutoDetectLongPolling": true,
+                            "experimentalLongPollingOptions": {},
+                            "useFetchStreams": true
+                        }
+                    }
+                },
+                "_userDataWriter": {
+                    "firestore": {
+                        "_delegate": {
+                            "app": {
+                                "_isDeleted": false,
+                                "_options": {
+                                    "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                    "authDomain": "slikbutik.firebaseapp.com",
+                                    "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                    "projectId": "slikbutik",
+                                    "storageBucket": "slikbutik.appspot.com",
+                                    "messagingSenderId": "1034395634412",
+                                    "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                                },
+                                "_config": {
+                                    "name": "[DEFAULT]",
+                                    "automaticDataCollectionEnabled": false
+                                },
+                                "_name": "[DEFAULT]",
+                                "_automaticDataCollectionEnabled": false,
+                                "_container": {
+                                    "name": "[DEFAULT]",
+                                    "providers": {}
+                                }
+                            },
+                            "databaseId": {
+                                "projectId": "slikbutik",
+                                "database": "(default)"
+                            },
+                            "settings": {
+                                "host": "firestore.googleapis.com",
+                                "ssl": true,
+                                "ignoreUndefinedProperties": false,
+                                "cacheSizeBytes": 41943040,
+                                "experimentalForceLongPolling": false,
+                                "experimentalAutoDetectLongPolling": true,
+                                "experimentalLongPollingOptions": {},
+                                "useFetchStreams": true
+                            }
+                        },
+                        "_persistenceProvider": {},
+                        "INTERNAL": {},
+                        "_appCompat": {
+                            "name": "[DEFAULT]",
+                            "automaticDataCollectionEnabled": false,
+                            "options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "2MzVZcMKzfl3k8h84KaZ": {
+            "quantity": 120,
+            "selection": {
+                "firestore": {
+                    "_delegate": {
+                        "app": {
+                            "_isDeleted": false,
+                            "_options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            },
+                            "_config": {
+                                "name": "[DEFAULT]",
+                                "automaticDataCollectionEnabled": false
+                            },
+                            "_name": "[DEFAULT]",
+                            "_automaticDataCollectionEnabled": false,
+                            "_container": {
+                                "name": "[DEFAULT]",
+                                "providers": {}
+                            }
+                        },
+                        "databaseId": {
+                            "projectId": "slikbutik",
+                            "database": "(default)"
+                        },
+                        "settings": {
+                            "host": "firestore.googleapis.com",
+                            "ssl": true,
+                            "ignoreUndefinedProperties": false,
+                            "cacheSizeBytes": 41943040,
+                            "experimentalForceLongPolling": false,
+                            "experimentalAutoDetectLongPolling": true,
+                            "experimentalLongPollingOptions": {},
+                            "useFetchStreams": true
+                        }
+                    },
+                    "_persistenceProvider": {},
+                    "INTERNAL": {},
+                    "_appCompat": {
+                        "name": "[DEFAULT]",
+                        "automaticDataCollectionEnabled": false,
+                        "options": {
+                            "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                            "authDomain": "slikbutik.firebaseapp.com",
+                            "databaseURL": "https://slikbutik.firebasedatabase.app",
+                            "projectId": "slikbutik",
+                            "storageBucket": "slikbutik.appspot.com",
+                            "messagingSenderId": "1034395634412",
+                            "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                        }
+                    }
+                },
+                "_delegate": {
+                    "converter": null,
+                    "_key": {
+                        "path": {
+                            "segments": [
+                                "selection",
+                                "2MzVZcMKzfl3k8h84KaZ"
+                            ],
+                            "offset": 0,
+                            "len": 2
+                        }
+                    },
+                    "type": "document",
+                    "firestore": {
+                        "app": {
+                            "_isDeleted": false,
+                            "_options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            },
+                            "_config": {
+                                "name": "[DEFAULT]",
+                                "automaticDataCollectionEnabled": false
+                            },
+                            "_name": "[DEFAULT]",
+                            "_automaticDataCollectionEnabled": false,
+                            "_container": {
+                                "name": "[DEFAULT]",
+                                "providers": {}
+                            }
+                        },
+                        "databaseId": {
+                            "projectId": "slikbutik",
+                            "database": "(default)"
+                        },
+                        "settings": {
+                            "host": "firestore.googleapis.com",
+                            "ssl": true,
+                            "ignoreUndefinedProperties": false,
+                            "cacheSizeBytes": 41943040,
+                            "experimentalForceLongPolling": false,
+                            "experimentalAutoDetectLongPolling": true,
+                            "experimentalLongPollingOptions": {},
+                            "useFetchStreams": true
+                        }
+                    }
+                },
+                "_userDataWriter": {
+                    "firestore": {
+                        "_delegate": {
+                            "app": {
+                                "_isDeleted": false,
+                                "_options": {
+                                    "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                    "authDomain": "slikbutik.firebaseapp.com",
+                                    "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                    "projectId": "slikbutik",
+                                    "storageBucket": "slikbutik.appspot.com",
+                                    "messagingSenderId": "1034395634412",
+                                    "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                                },
+                                "_config": {
+                                    "name": "[DEFAULT]",
+                                    "automaticDataCollectionEnabled": false
+                                },
+                                "_name": "[DEFAULT]",
+                                "_automaticDataCollectionEnabled": false,
+                                "_container": {
+                                    "name": "[DEFAULT]",
+                                    "providers": {}
+                                }
+                            },
+                            "databaseId": {
+                                "projectId": "slikbutik",
+                                "database": "(default)"
+                            },
+                            "settings": {
+                                "host": "firestore.googleapis.com",
+                                "ssl": true,
+                                "ignoreUndefinedProperties": false,
+                                "cacheSizeBytes": 41943040,
+                                "experimentalForceLongPolling": false,
+                                "experimentalAutoDetectLongPolling": true,
+                                "experimentalLongPollingOptions": {},
+                                "useFetchStreams": true
+                            }
+                        },
+                        "_persistenceProvider": {},
+                        "INTERNAL": {},
+                        "_appCompat": {
+                            "name": "[DEFAULT]",
+                            "automaticDataCollectionEnabled": false,
+                            "options": {
+                                "apiKey": "AIzaSyAB8efARQdHdUtKWPBJz_y76U_hVP1ndjc",
+                                "authDomain": "slikbutik.firebaseapp.com",
+                                "databaseURL": "https://slikbutik.firebasedatabase.app",
+                                "projectId": "slikbutik",
+                                "storageBucket": "slikbutik.appspot.com",
+                                "messagingSenderId": "1034395634412",
+                                "appId": "1:1034395634412:web:e1e3b30d91be165a80b3c9"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "customerDetails": {
+        "customerInformation": {
+            "name": "Test user",
+            "phone": "22334455",
+            "email": "testemail@email.com"
+        },
+        "deliveryDetails": {
+            "address": "Test street 23",
+            "city": "Test city",
+            "postalCode": 2400,
+            "country": "DK"
+        },
+        "paymentDetails": {
+            "cardNumber": 2233445588775533,
+            "securityCode": 641,
+            "expDate": {
+                "month": 11,
+                "year": 22
+            }
+        }
+    }
+}

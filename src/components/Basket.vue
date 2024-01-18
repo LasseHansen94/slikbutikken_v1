@@ -1,39 +1,48 @@
 <template>
-    <div class="basket_overview">
-        <!-- A div which turns into a popup over the screen showing the information about the items which are in the basket -->
-        <h2>Basket</h2>
-        <div v-if="basketState.basket.length < 1">
-            <!-- Checks if there is less than one item in the basket list. If so, show a text saying no items in the basket. -->
-            <h3>No items in the basket</h3>
-        </div>
-        <div v-else> <!-- Else if there is 1 or more items in the basket list, the show the information below -->
-            <li v-for="item in basketState.basket">
-                <!-- 
-                    /** 
-                     * TODO: For each item show: 
-                     * ! A small image.
-                     * ! Total quantity added to basket.
-                     * ! The quantity value (DKK)
-                    */
-                -->
-                {{ item.name }}
-            </li>
-        </div>
-
-        <!--
-            /** 
-             * TODO: Show the total value (DKK) in the basket 
-            */
-        -->
+    <div class="basket-overview">
+      <h2 class="basket-title">Basket</h2>
+  
+      <div v-if="basketState.basket.length < 1" class="empty-basket">
+        <h3>No items in the basket</h3>
+      </div>
+  
+      <div v-else class="basket-items">
+        <ul class="items-list">
+          <li v-for="item in basketState.basket" :key="item.id" class="item">
+            <div class="item-details">
+              <h3 class="item-name">Name: {{ item.name }}</h3>
+              <p class="item-quantity">Quantity: {{ item.quantity }}</p>
+              <p class="item-price">Price: {{ item.price * item.quantity }}</p>
+            </div>
+            <img :src="item.image" alt="Item image" class="item-image">
+          </li>
+        </ul>
+      </div>
+  
+      <div class="total-price">
+        <h1>Total Price: {{ calculateTotalPrice(basketState.basket) }}</h1>
+      </div>
     </div>
-</template>
+  </template>
 
 <script>
 import basket from "../modules/basket";
 
 export default {
     name: "Basket",
- 
+
+    methods: {
+        calculateTotalPrice(basket) {
+            console.log("TESTTEST:", basket);
+            var sum = 0;
+            for (const item of basket) {
+                sum += (item.price * item.quantity)
+            }
+
+            return sum;
+        },
+    },
+    
     setup() {
         const { basketState, addToBasket } = basket;
 
@@ -43,6 +52,60 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+.basket-overview {
+  /* Add your styles here */
+}
 
+.basket-title {
+  /* Style for basket title */
+}
+
+.empty-basket {
+  /* Style for when basket is empty */
+}
+
+.basket-items {
+  /* Style for basket items container */
+}
+
+.items-list {
+  /* Style for the list of items */
+}
+
+.item {
+  /* Style for each item */
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0; /* Background color for the item */
+  padding: 10px; /* Padding around the content */
+  margin-bottom: 10px; /* Margin between items */
+  border-radius: 8px; /* Optional: Rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adding a subtle shadow for depth */
+  width: fit-content; /* Adjust width to fit the content */
+  margin-right: auto; /* Center the item if not full width */
+  margin-left: auto;
+}
+
+.item-details {
+  /* Style for item details */
+  flex-grow: 1;
+  font-size: 0.9rem; /* Smaller font size for item details */
+}
+
+.item-name, .item-quantity, .item-price {
+  /* Style for item name, quantity, and price */
+  margin: 3px 0; /* Smaller margins for a compact look */
+}
+
+.item-image {
+  /* Style for item image */
+  width: 30px; /* Smaller width for the image */
+  height: auto;
+  margin-left: 10px;
+}
+
+.total-price {
+  /* Style for total price */
+}
 </style>
