@@ -214,9 +214,7 @@ export default {
     /* Spacing inside the item */
 }
 
-.outer-box{
-    
-}
+
 .add-to-basket button {
     background-color: #4CAF50;
     /* Button color */

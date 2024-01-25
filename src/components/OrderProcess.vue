@@ -199,14 +199,14 @@ export default {
              * TODO: Validate information below
              * Address
             */
-            if (! "REPLACE THIS WITH REGEX LIKE ABOVE") {
-                console.log("Error in street validation");
+            if (! /^[A-Za-z ]+\s\d+$/.test(this.customer.deliveryDetails.address)) {
+                console.log("Error in address validation");
                 return false;
-            } else if (! "REPLACE THIS WITH REGEX LIKE ABOVE") {
+            } else if (! /^[A-Za-z ]+$/.test(this.customer.deliveryDetails.city)) {
                 console.log("Error in city validation");
                 return false;
-            } else if (! "REPLACE THIS WITH REGEX LIKE ABOVE") {
-                console.log("Error in POstalcode validation");
+            } else if (! /^\d{4}$/.test(this.customer.deliveryDetails.postalCode)) {
+                console.log("Error in Postalcode validation");
                 return false;
             } else {
                 // Everything was fine
@@ -217,16 +217,16 @@ export default {
         async validateDataPayment() {
             /** 
              * TODO: Validate information below
-             * Address
+             * Credit card information
             */
 
-            if (! "REPLACE THIS WITH REGEX LIKE ABOVE") {
+            if (! /^(?:\d{4}-?){3}\d{4}$/.test(this.customer.paymentDetails.cardNumber)) {
                 console.log("Error in cardNumber validation");
                 return false;
-            } else if (! "REPLACE THIS WITH REGEX LIKE ABOVE") {
+            } else if (! /^\d{3}$/.test(this.customer.paymentDetails.securityCode)) {
                 console.log("Error in securityCode validation");
                 return false;
-            } else if (! "REPLACE THIS WITH REGEX LIKE ABOVE") {
+            } else if (! this.isExpiryDateValid(this.customer.paymentDetails.expDate.month, this.customer.paymentDetails.expDate.year)) {
                 console.log("Error in expirey date validation");
                 return false;
             } else {
@@ -283,6 +283,33 @@ export default {
                 console.log("Error updating order number: ", error);
                 throw error; // Re-throw the error to handle it
             };
+        },
+
+        isExpiryDateValid(month, year) {
+            // Convert strings to numbers if necessary
+            let expMonth = parseInt(month, 10);
+            let expYear = parseInt(year, 10);
+
+            // Adjust the year format to YYYY
+            expYear += (expYear < 100) ? 2000 : 0;
+
+            // Check if the month is valid
+            if (expMonth < 1 || expMonth > 12) {
+                return false;
+            }
+
+            // Get the current month and year
+            let currentDate = new Date();
+            let currentMonth = currentDate.getMonth() + 1; // JavaScript months are 0-11
+            let currentYear = currentDate.getFullYear();
+
+            // Check if the expiry year is in the past
+            // or if it's the current year and the month has already passed
+            if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
+                return false;
+            }
+
+            return true;
         },
 
         /** 

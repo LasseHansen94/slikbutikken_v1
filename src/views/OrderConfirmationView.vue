@@ -91,8 +91,8 @@ export default {
     margin-bottom: 5px;
 }
 
-.item-details p,
-.order-info p {
+.order-info p,
+.item-details p {
     margin: 0;
     color: #666;
 }
@@ -107,4 +107,39 @@ export default {
 .order-items {
     list-style-type: none;
     padding: 0;
-}</style>
+}
+
+.order-items li {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.order-items li:hover {
+    background-color: #f5f5f5;
+}
+
+.order-items li .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-items li .item h2 {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.order-items li .item-details,
+.order-items li .item-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.order-items li .item-details p {
+    margin: 0;
+}
+
+</style>

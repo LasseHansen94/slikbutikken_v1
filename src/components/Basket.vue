@@ -53,25 +53,6 @@ export default {
 
 
 <style scoped>
-.basket-overview {
-  /* Add your styles here */
-}
-
-.basket-title {
-  /* Style for basket title */
-}
-
-.empty-basket {
-  /* Style for when basket is empty */
-}
-
-.basket-items {
-  /* Style for basket items container */
-}
-
-.items-list {
-  /* Style for the list of items */
-}
 
 .item {
   /* Style for each item */
@@ -103,9 +84,5 @@ export default {
   width: 30px; /* Smaller width for the image */
   height: auto;
   margin-left: 10px;
-}
-
-.total-price {
-  /* Style for total price */
 }
 </style>
