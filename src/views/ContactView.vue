@@ -1,19 +1,13 @@
 <template>
-    <div>
-        <h1>Kontaktside</h1>
-        <div>
-            <p>Velkommen til vores kontaktside. Hvordan kan vi hjælpe dig i dag?</p>
-        </div>
-        <div>
-            <label for="navn">Navn:</label>
-            <input type="text" id="navn" v-model="brugerNavn" />
-        </div>
-        <div>
-            <label for="besked">Besked:</label>
-            <textarea id="besked" v-model="besked"></textarea>
-        </div>
-        <button @click="sendBesked">Send Besked</button>
+  <div class="contact-container">
+    <h1>Kontaktside</h1>
+
+    <div class="contact-info">
+      <p>Velkommen til vores kontaktside. Her er vores oplysninger, så du kan tage kontakt til os</p>
+      <p>Vores email: slik/buttikken@gmail.com</p>
+      <p>Vores telefonnummer: 504783001</p>
     </div>
+  </div>
 </template>
   
 <script>
@@ -23,18 +17,35 @@ export default {
             brugerNavn: '',
             besked: ''
         };
-    },
-    methods: {
-        sendBesked() {
-            // Logik til at håndtere beskedens afsendelse
-            console.log('Besked sendt:', this.brugerNavn, this.besked);
-            // Du kan tilføje yderligere logik her, f.eks. en HTTP-anmodning til en server
-        }
-    }
-};
+    },  }
+    
+;
 </script>
   
 <style scoped>
-/* Din CSS-styling her */
+/* Generel container styling */
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Overskrift styling */
+h1 {
+  color: #a87373;
+}
+
+/* Kontaktinformation styling */
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: #007BFF;
+}
 </style>
   
