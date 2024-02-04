@@ -24,10 +24,10 @@ export default {
 }
 
 .map-container {
-  width: 200%; /* Juster bredden efter dine behov */
+  width: 200%; 
 }
 
 .text-container {
-  width: 30%; /* Juster bredden efter dine behov */
+  width: 30%; 
 }
 </style>

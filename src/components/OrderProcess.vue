@@ -171,12 +171,7 @@ export default {
 
         validateDataCustomer() {
 
-            /** 
-             * TODO: Validate information below
-             * Email, (Use regex)
-             * Phone, (Should not include letters and symbols)
-             * Name, (Should not include numbers or random symbols)
-            */
+
 
             if (! /^\S+@\S+\.\S+$/.test(this.customer.customerInformation.email)) {
                 console.log("Error in email validation");
@@ -195,10 +190,7 @@ export default {
         },
 
         validateDataDelivery() {
-            /** 
-             * TODO: Validate information below
-             * Address
-            */
+            
             if (! /^[A-Za-z ]+\s\d+$/.test(this.customer.deliveryDetails.address)) {
                 console.log("Error in address validation");
                 return false;
@@ -215,10 +207,7 @@ export default {
         },
 
         async validateDataPayment() {
-            /** 
-             * TODO: Validate information below
-             * Credit card information
-            */
+            
 
             if (! /^(?:\d{4}-?){3}\d{4}$/.test(this.customer.paymentDetails.cardNumber)) {
                 console.log("Error in cardNumber validation");
