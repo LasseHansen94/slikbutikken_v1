@@ -67,9 +67,9 @@ describe('OrderProcess.vue', () => {
     wrapper.setData({
       customer: {
         customerInformation: {
-          name: "Jane Doe",
+          name: "Hanne  Andersen",
           phone: "invalid-phone",
-          email: "jane.doe@example.com",
+          email: "Hanne.gmail@example.com",
         }
       }
     });

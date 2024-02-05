@@ -66,22 +66,22 @@ export default {
 
 .nav-link .nav-button {
     background-color: #555;
-    /* Button background color */
+    
     border: none;
     color: white;
-    /* Button text color */
+    
     cursor: pointer;
     padding: 10px 20px;
-    /* Padding inside the buttons */
+    
     border-radius: 5px;
-    /* Rounded corners for buttons */
+    
     transition: background-color 0.3s;
-    /* Smooth transition for hover effect */
+    
 }
 
 .nav-link .nav-button:hover {
     background-color: #777;
-    /* Button background color on hover */
+    
 }
 
 
@@ -90,13 +90,12 @@ export default {
     height: auto;
     cursor: pointer;
     border-radius: 50%;
-    /* Circular rounded corners for the basket icon */
+    
     transition: transform 0.3s;
-    /* Smooth transition for hover effect */
-}
+    
 
 .basket_icon:hover {
     transform: scale(1.1);
-    /* Slightly increase size on hover */
+}
 }
 </style>

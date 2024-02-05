@@ -55,33 +55,33 @@ export default {
 <style scoped>
 
 .item {
-  /* Style for each item */
+  
   display: flex;
   align-items: center;
-  background-color: #f0f0f0; /* Background color for the item */
-  padding: 10px; /* Padding around the content */
-  margin-bottom: 10px; /* Margin between items */
-  border-radius: 8px; /* Optional: Rounded corners */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adding a subtle shadow for depth */
-  width: fit-content; /* Adjust width to fit the content */
-  margin-right: auto; /* Center the item if not full width */
+  background-color: #f0f0f0; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  border-radius: 8px; 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  width: fit-content; 
+  margin-right: auto; 
   margin-left: auto;
 }
 
 .item-details {
-  /* Style for item details */
+  
   flex-grow: 1;
-  font-size: 0.9rem; /* Smaller font size for item details */
+  font-size: 0.9rem; 
 }
 
 .item-name, .item-quantity, .item-price {
-  /* Style for item name, quantity, and price */
-  margin: 3px 0; /* Smaller margins for a compact look */
+  
+  margin: 3px 0; 
 }
 
 .item-image {
-  /* Style for item image */
-  width: 30px; /* Smaller width for the image */
+  
+  width: 30px; 
   height: auto;
   margin-left: 10px;
 }
