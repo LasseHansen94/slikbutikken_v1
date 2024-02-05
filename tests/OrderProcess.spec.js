@@ -1,5 +1,23 @@
+import { shallowMount } from "@vue/test-utils"; 
+jest.mock('firebase/compat/app', () => ({
+  initializeApp: jest.fn(() => ({
+    // Mock other Firebase services as needed
+    firestore: jest.fn(() => ({
+      // Mock Firestore methods if used
+    })),
+    storage: jest.fn(() => ({
+      // Mock Storage methods if used
+    })),
+  })),
+}));
+jest.mock('firebase/compat/firestore', () => ({
+  // Provide any mock exports here if needed
+}));
+jest.mock('firebase/compat/storage', () => ({
+  // Provide any mock exports here if needed
+}));
+
 import OrderProcess from '../src/components/OrderProcess.vue'; 
-import { shallowMount } from "@vue/test-utils";
 
 describe('OrderProcess.vue', () => {
   let wrapper;
@@ -10,7 +28,7 @@ describe('OrderProcess.vue', () => {
     global.console.log = jest.fn();
   });
 
-  it('advances to step 2 with valid customer data', async () => {
+  it('step 1 til step 2 tester for korrekt kundeinformation', async () => {
     // Set valid customer data
     wrapper.setData({
       customer: {
@@ -23,18 +41,18 @@ describe('OrderProcess.vue', () => {
     });
 
     await wrapper.vm.validateDataCustomer();
-    expect(wrapper.vm.step).toBe(2); // Should advance to the next step
+    expect(wrapper.vm.step).toBe(2); 
     expect(console.log).not.toHaveBeenCalled(); // Ensure no error logs
   });
-
-  it('does not advance to step 2 with invalid email', async () => {
+// rette testdata og navne på test
+  it('tester med forkert email som skal fejle', async () => {
     // Set invalid email
     wrapper.setData({
       customer: {
         customerInformation: {
-          name: "Jane Doe",
-          phone: "12345678",
-          email: "invalid-email",
+          name: "Uffe Hansen",
+          phone: "50478301",
+          email: "uffegmail.com",
         }
       }
     });
