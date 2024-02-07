@@ -33,9 +33,9 @@ describe('OrderProcess.vue', () => {
     wrapper.setData({
       customer: {
         customerInformation: {
-          name: "Jane Doe",
+          name: "Anders Jensen",
           phone: "12345678",
-          email: "jane.doe@example.com",
+          email: "Anders_Jensen@hotmail.com",
         }
       }
     });
@@ -44,15 +44,15 @@ describe('OrderProcess.vue', () => {
     expect(wrapper.vm.step).toBe(2); 
     expect(console.log).not.toHaveBeenCalled(); // Ensure no error logs
   });
-// rette testdata og navne på test
+
   it('tester med forkert email som skal fejle', async () => {
     // Set invalid email
     wrapper.setData({
       customer: {
         customerInformation: {
-          name: "Uffe Hansen",
+          name: "Mads Hansen",
           phone: "50478301",
-          email: "uffegmail.com",
+          email: "madsHansengmail.com",
         }
       }
     });
@@ -67,9 +67,9 @@ describe('OrderProcess.vue', () => {
     wrapper.setData({
       customer: {
         customerInformation: {
-          name: "Hanne  Andersen",
+          name: "David Andersen",
           phone: "invalid-phone",
-          email: "Hanne.gmail@example.com",
+          email: "David.david@outlook.com",
         }
       }
     });
