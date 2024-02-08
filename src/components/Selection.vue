@@ -6,7 +6,6 @@
             /** 
              * TODO: Show more item information
              *      ! Use css to make it look better.
-             * TODO: Add a quantity number input field with min. and max. numbers.
              *      ! Make sure the user can't input letters or symbols
              *      ! Make sure the user can't select more than item.stock
              *      ! Make sure the user can't select less than item.minimum_weight

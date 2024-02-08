@@ -11,7 +11,7 @@
                 <p>{{ orderDocumentDetails.orderId }}</p>
             </div>
 
-            <div>
+            <div class="customer-info">
                 <h3>Customer information:</h3>
                 <p>Name: {{ orderDocumentDetails.customerDetails.customerInformation.name }}</p>
                 <p>Email: {{ orderDocumentDetails.customerDetails.customerInformation.email }}</p>
@@ -66,6 +66,12 @@ export default {
 </script>
 
 <style>
+
+.customer-info {
+ color: blue;
+ border: 5px , solid black;
+}
+
 .container {
     max-width: 800px;
     margin: auto;
