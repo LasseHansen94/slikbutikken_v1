@@ -62,7 +62,7 @@ describe('OrderProcess.vue', () => {
     expect(console.log).toHaveBeenCalledWith(expect.stringContaining("Error in email validation"));
   });
 
-  it('does not advance to step 2 with invalid phone', async () => {
+  it('tester med forkert telefonnummer', async () => {
     // Set invalid phone number
     wrapper.setData({
       customer: {

@@ -5,8 +5,8 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2250.3795411389465!2d12.54256907615486!3d55.66499989875141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652539d9fc33167%3A0x9fe3aa5d21c772ca!2sR%C3%B8ddinggade%208%2C%201735%20K%C3%B8benhavn!5e0!3m2!1sen!2sdk!4v1702901296096!5m2!1sen!2sdk" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="text-container">
-      <!-- Tilføj din tekst her -->
-      <p>Her hos slikbuttikken står vi klar til at hjælpe dig med at finde det helt rigtige slik til en billig pris.</p>
+      <h2>Vores Mission</h2>
+      <p>Her i slikbuttikken står vi klar til at hjælpe dig med at finde det helt rigtige slik til en billig pris. naviger til selection for at starte dit køb</p>
     </div>
   </div>
 </template>
@@ -27,7 +27,10 @@ export default {
   width: 200%; 
 }
 
+
 .text-container {
-  width: 30%; 
+  width: 30%;
+  border: 2px solid black; 
+  padding: 20px; 
 }
 </style>

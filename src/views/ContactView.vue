@@ -8,33 +8,38 @@
       <p>Vores telefonnummer: 504783001</p>
     </div>
   </div>
+
+  
+  <div class="sociale-medier">
+      <p>Følg os på sociale medier:</p>
+      <a href="link-til-din-facebook-side">Facebook</a>
+      <a href="link-til-din-instagram-profil">instagram</a>
+       </div>
 </template>
   
 <script>
-export default {
-    data() {
-        return {
-            brugerNavn: '',
-            besked: ''
-        };
-    },  }
+
     
 ;
 </script>
   
 <style scoped>
-/* Generel container styling */
+
 .contact-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
 
+.sociale-medier a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #007BFF;
 /* Overskrift styling */
 h1 {
   color: #a87373;
 }
-
+}
 /* Kontaktinformation styling */
 .contact-info {
   margin-top: 20px;
