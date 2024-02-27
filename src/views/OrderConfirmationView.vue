@@ -15,7 +15,7 @@
                 <h3>Din information:</h3>
                 <p>Name: {{ orderDocumentDetails.customerDetails.customerInformation.name }}</p>
                 <p>Email: {{ orderDocumentDetails.customerDetails.customerInformation.email }}</p>
-                <p>Phone: {{ orderDocumentDetails.customerDetails.customerInformation.phone }}</p>
+                <p>telefonnummer: {{ orderDocumentDetails.customerDetails.customerInformation.phone }}</p>
             </div>
 
             <div>

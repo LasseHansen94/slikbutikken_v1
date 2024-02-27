@@ -2,15 +2,7 @@
     <div>
         <h2>Udvalg</h2>
 
-        <!-- 
-            /** 
-             * TODO: Show more item information
-             *      ! Use css to make it look better.
-             *      ! Make sure the user can't input letters or symbols
-             *      ! Make sure the user can't select more than item.stock
-             *      ! Make sure the user can't select less than item.minimum_weight
-            */
-        -->
+        
         <ul class="items-container">
             <li v-for="item in selection" class="outer-box">
                 <div class="item">
@@ -63,7 +55,7 @@ export default {
             selection: [],
             showNotification: false,
             notificationMessage: '',
-            notificationColor: 'green',
+            notificationColor: 'green', // Default color
         }
     },
     methods: {
@@ -73,6 +65,7 @@ export default {
             this.notificationColor = color;
             this.showNotification = true;
 
+            // Hide the notification after a delay
             setTimeout(() => {
                 this.showNotification = false;
             }, 3000);
@@ -80,16 +73,19 @@ export default {
 
         addItemToBasket(item) {
 
+            /**
+            * TODO: Check that 'quantity' can be converted to a number, otherwise throw error.
+            */
 
-        // hvis item quantity er mindre end minimum_weight skal teksten blive rød
+            // If item quantity is less than minimum
             if (item.quantity < item.minimum_weight) {
                 this.showTempNotification("Item quantity is lees than minimum", 'red');
-                // hvis skrevet antal er mere en lagerbeholdningen skal den vise en error og blive rød
+            // If item quantity is more than stock
             } else if (item.quantity > item.stock) {
-                this.showTempNotification("Der er ikke nok på lager, du må ændre på mængden, 'red');
-    
+                this.showTempNotification("Item quantity is more than currently in stock", 'red');
+            // Item quantity is OK
             } else {
-                this.showTempNotification(`${item.quantity}g af ${item.name} blev tilføjet til kurven"`, 'green');
+                this.showTempNotification(`${item.quantity}g of ${item.name} was added to basket"`, 'green');
                 this.addToBasket(item)
             }
 

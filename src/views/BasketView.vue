@@ -1,12 +1,13 @@
 <template>
     <div>
         <h1>
-            My basket 
+            Min Kurv
         </h1>
 
         <Basket />
+        <OrderProcess></OrderProcess>
         
-        <OrderProcess />
+    
     </div>
 </template>
 
@@ -29,4 +30,5 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+</style>

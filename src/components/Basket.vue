@@ -1,9 +1,8 @@
 <template>
     <div class="basket-overview">
-      <h2 class="basket-title">Basket</h2>
        <!-- Vi checker om   basket er tom ved at kigge på basket.length ikke er mindre end 1 -->
       <div v-if="basketState.basket.length < 1" class="empty-basket">
-        <h3>No items in the basket</h3>
+        <h3>ingen varer i kurven</h3>
       </div>
   
       <div v-else class="basket-items">
@@ -11,9 +10,9 @@
           <!-- vi laver et for loop for at få fat i alle items i basket og for at vise henholdsvist navn, antal, pris og billede.-->
           <li v-for="item in basketState.basket" :key="item.id" class="item">
             <div class="item-details">
-              <h3 class="item-name">Name: {{ item.name }}</h3>
-              <p class="item-quantity">Quantity: {{ item.quantity }}</p>
-              <p class="item-price">Price: {{ item.price * item.quantity }}</p>
+              <h3 class="item-name"> {{ item.name }}</h3>
+              <p class="item-quantity">Mængde: {{ item.quantity }}</p>
+              <p class="item-price">Pris: {{ item.price * item.quantity }}</p>
             </div>
             <img :src="item.image" alt="Item image" class="item-image">
           </li>
@@ -22,7 +21,7 @@
   
       <div class="total-price">
         <!-- her kører vi vores funktion calculateTotalPrice som er defineret længere nede-->
-        <h1>Total Price: {{ calculateTotalPrice(basketState.basket) }}</h1>
+        <h1>Samlet Pris: {{ calculateTotalPrice(basketState.basket) }}</h1>
       </div>
     </div>
   </template>

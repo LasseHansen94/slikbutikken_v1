@@ -4,11 +4,11 @@
 
         <div class="button-container">
             <div>
-                <button style="color: red;" @click="closePopup">Close</button>
+                <button style="color: red;" @click="closePopup">Luk</button>
             </div>
             <div>
                 <router-link  to="/basket">
-                    <button @click="closePopup">Go to basket</button>
+                    <button @click="closePopup">Gå til kurven</button>
                 </router-link>
             </div>
         </div>

@@ -1,37 +1,21 @@
 <template>
     <div>
-        <!--
-            /** 
-             * TODO: Initial information gathering like name, phone, email, ...
-             * TODO: Create a button which goes to next step
-            */
-        -->
-
-        <!-- 
-            /** 
-             *TODO: Delete <p> below when done!
-            */
-        -->
-        <p>
-            {{ customer }}
-        </p>
 
 
         <div v-if="step == 1">
             <h1>Step 1: Customer information</h1>
             <div>
-                <p> This is where the information and imput fields will be </p>
 
                 <div>
-                    <p> Full name </p>
+                    <p> Skriv dit fulde navn </p>
                     <input v-model="customer.customerInformation.name">
                 </div>
                 <div>
-                    <p> Phone </p>
+                    <p> Skriv dit telefonnummer </p>
                     <input v-model="customer.customerInformation.phone">
                 </div>
                 <div>
-                    <p> email </p>
+                    <p> skriv din email </p>
                     <input v-model="customer.customerInformation.email">
                 </div>
             </div>
@@ -41,28 +25,19 @@
             </div>
         </div>
 
-        <!--
-            /** 
-             * TODO: Second step of information gathering like, address and delivery informatin
-             * TODO: Create a button which goes to next step
-             * TODO: Create a button which goes to previous step
-            */
-        -->
         <div v-else-if="step == 2">
-            <h1>Step 2: Delivery information</h1>
+            <h1>Step 2: forsendelses information</h1>
             <div>
-                <p> This is where the information and imput fields will be </p>
-
                 <div>
-                    <p> Street and number </p>
+                    <p> vej og vejnummer </p>
                     <input v-model="customer.deliveryDetails.address">
                 </div>
                 <div>
-                    <p> City </p>
+                    <p> By </p>
                     <input v-model="customer.deliveryDetails.city">
                 </div>
                 <div>
-                    <p> Postal code </p>
+                    <p> Postnummer </p>
                     <input v-model="customer.deliveryDetails.postalCode">
                 </div>
 
@@ -70,34 +45,27 @@
             </div>
 
             <div>
-                <button type="button" @click="step = 1">Back</button>
-                <button type="button" @click="validateDataDelivery()">Next</button>
+                <button type="button" @click="step = 1">Tilbage</button>
+                <button type="button" @click="validateDataDelivery()">videre</button>
             </div>
 
         </div>
 
-        <!--
-            /** 
-             * TODO: Third step of information gahtering like payment details.
-             * TODO: Create a button which sends order and afterwards sends user to the confirmation page
-             * TODO: Create a button which goes to previous step
-            */
-        -->
         <div v-else-if="step == 3">
-            <h1>Step 3: Payment details</h1>
+            <h1>Step 3: Betalingsoplysninger</h1>
             <div>
-                <p> This is where the information and imput fields will be </p>
+
 
                 <div>
-                    <p> Cardnumber </p>
+                    <p> Kortnummer </p>
                     <input v-model="customer.paymentDetails.cardNumber">
                 </div>
                 <div>
-                    <p> Security code </p>
+                    <p> Sikkerhedskode </p>
                     <input v-model="customer.paymentDetails.securityCode">
                 </div>
                 <div>
-                    <p> Expirey date </p>
+                    <p> Udløbsdato </p>
                     <input v-model="customer.paymentDetails.expDate.month">
                     <input v-model="customer.paymentDetails.expDate.year">
                 </div>
@@ -106,15 +74,13 @@
             </div>
 
             <div>
-                <button type="button" @click="step = 2">Back</button>
-                <button type="button" @click="validateDataPayment()">Complete order</button>
+                <button type="button" @click="step = 2">Tilbage</button>
+                <button type="button" @click="validateDataPayment()">gennemfør ordre</button>
             </div>
         </div>
 
         <div v-else>
-            <h1>Something went wrong, please reload page and try again.</h1>
-            <h2>If the issue persists, please contact us.</h2>
-
+            <h1>Noget gik galt Ipdater siden og prøv igen.</h1>
         </div>
 
     </div>
@@ -160,8 +126,7 @@ export default {
     methods: {
         /** 
          * 
-         * TODO: Add a function which adds the current order from basket.js
-         * This is the first step which sets the whole order process,
+         * Det her er det første skridt i processen.
         */
 
         validateDataCustomer() {
@@ -185,7 +150,7 @@ export default {
         },
 
         validateDataDelivery() {
-            
+
             if (! /^[A-Za-z ]+\s\d+$/.test(this.customer.deliveryDetails.address)) {
                 console.log("Error in address validation");
                 return false;
@@ -202,7 +167,7 @@ export default {
         },
 
         async validateDataPayment() {
-            
+
 
             if (! /^(?:\d{4}-?){3}\d{4}$/.test(this.customer.paymentDetails.cardNumber)) {
                 console.log("Error in cardNumber validation");
@@ -210,7 +175,7 @@ export default {
             } else if (! /^\d{3}$/.test(this.customer.paymentDetails.securityCode)) {
                 console.log("Error in securityCode validation");
                 return false;
-            } else if (! this.isExpiryDateValid(this.customer.paymentDetails.expDate.month, this.customer.paymentDetails.expDate.year)) {
+            } else if (!this.isExpiryDateValid(this.customer.paymentDetails.expDate.month, this.customer.paymentDetails.expDate.year)) {
                 console.log("Error in expirey date validation");
                 return false;
             } else {
@@ -234,13 +199,12 @@ export default {
         // vi skaffer det nuværende odrenummer
         async getCurrentOrderNumber() {
             try {
-                // Use the async/await to pause the process until the promise is finished and we have the data from firebase
+                // brug async/await til at pause processen indtil vores promise er færdigt og vi har dataen fra firebase.
                 // vi laver et promise med async/await, så vi venter til vi har dataen fra firebase.
 
                 const doc = await db.collection("orders").doc("orderNumber").get();
                 if (doc.exists) {
-                    // vi retunerer resultatet af mit promise.
-                    // Return the result of the promise / database request.
+                    // vi retunerer resultatet af mit promise.  
                     return doc.data().orderNumber; // Return odre
                 } else {
                     console.log("No such document!");
@@ -249,48 +213,46 @@ export default {
             } catch (error) {
                 console.log("Error getting documents: ", error);
                 // vi sender en error, hvis det ikke virker.
-                throw error; 
+                throw error;
             }
         },
         //opdater firebase med det nyeste odrenummer
         async updateOrderNumber(newOrderNumber) {
             try {
 
-    
+
                 // vi laver en reference til ordernummer i ordre collection
                 const orderNumberDoc = db.collection("orders").doc("orderNumber");
-            
+
                 await orderNumberDoc.update({ orderNumber: newOrderNumber });
 
                 console.log(`Order number updated to: ${newOrderNumber}`);
-                return; // Return the updated order number
+                return; // Vi retunerer det nye odrenummer og logger for at sikre os det er gået igennem.
 
             } catch (error) {
-                console.log("Error updating order number: ", error);
-                throw error; // Re-throw the error to handle it
+                console.log("Der skete en fejl ved opdatering af odrenummer: ", error);
+                throw error;
             };
         },
 
         isExpiryDateValid(month, year) {
-            // Convert strings to numbers if necessary
+            // Vi konverter strings til tal, hvis det skulle blive nødvendigt.
             let expMonth = parseInt(month, 10);
             let expYear = parseInt(year, 10);
 
-            // Adjust the year format to YYYY
+            // Vi formaterer formatet på år yil YYYY
             expYear += (expYear < 100) ? 2000 : 0;
 
-            // Check if the month is valid
+            // Vi checker om det er en ægte måned ift. javascript måneder som er 0-11
             if (expMonth < 1 || expMonth > 12) {
                 return false;
             }
 
-            // Get the current month and year
+            // Vi skaffer nuværende dato
             let currentDate = new Date();
-            let currentMonth = currentDate.getMonth() + 1; // JavaScript months are 0-11
+            let currentMonth = currentDate.getMonth() + 1; // Vi tilføjer 1, da javascript måneder er 0-11
             let currentYear = currentDate.getFullYear();
-
-            // Check if the expiry year is in the past
-            // or if it's the current year and the month has already passed
+            // vi checker om udløbsdatoen er i fortiden.
             if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
                 return false;
             }
