@@ -111,11 +111,6 @@
             </div>
         </div>
 
-        <!--
-            /** 
-             * TODO: I don't know, maybe if something went wrong???
-            */
-        -->
         <div v-else>
             <h1>Something went wrong, please reload page and try again.</h1>
             <h2>If the issue persists, please contact us.</h2>
@@ -183,7 +178,7 @@ export default {
                 console.log("Error in name validation");
                 return false;
             } else {
-                // Everything was fine
+                // alt er ok -vi kan fortsætte til step 2
                 this.step = 2;
             }
 
@@ -201,7 +196,7 @@ export default {
                 console.log("Error in Postalcode validation");
                 return false;
             } else {
-                // Everything was fine
+                // alt var ok - fortsæt til step 3
                 this.step = 3;
             }
         },
@@ -219,50 +214,52 @@ export default {
                 console.log("Error in expirey date validation");
                 return false;
             } else {
-                // Everything was fine
-                // Information is correct, add order to database.
+                // alt er ok
+                // input er ok , tilføf odre til database.
 
-                // Get the current order number
+                // få det nuværende odrenummer
                 var currentOrderNumber = await this.getCurrentOrderNumber();
 
-                // Increase it by one and save the new order number to a new variable
+                // plus odrenummer med 1, sådan det er unikt.
                 var newOrderNumber = currentOrderNumber + 1;
 
-                // Update the firebase database with the new order number
+                // opdater firebase med det nye odrenummer
                 this.updateOrderNumber(newOrderNumber);
-
-                // This function creates the full order document and sends it to firebase.
+                // Denne funktion sender hele odren til firebase.
                 this.addOrderToDatabase(newOrderNumber);
             }
 
         },
 
-        // Gets current order number from firebase
+        // vi skaffer det nuværende odrenummer
         async getCurrentOrderNumber() {
             try {
                 // Use the async/await to pause the process until the promise is finished and we have the data from firebase
+                // vi laver et promise med async/await, så vi venter til vi har dataen fra firebase.
+
                 const doc = await db.collection("orders").doc("orderNumber").get();
                 if (doc.exists) {
+                    // vi retunerer resultatet af mit promise.
                     // Return the result of the promise / database request.
-                    return doc.data().orderNumber; // Return the document data
+                    return doc.data().orderNumber; // Return odre
                 } else {
                     console.log("No such document!");
-                    return null; // Return null or some default value
+                    return null; // hvis der ikke findes et dokument i firebase med odrenummeret skal det logges i console
                 }
             } catch (error) {
                 console.log("Error getting documents: ", error);
-                throw error; // Re-throw the error to handle it in the caller function
+                // vi sender en error, hvis det ikke virker.
+                throw error; 
             }
         },
-
-        // Update the firebase database with the newest used order number
+        //opdater firebase med det nyeste odrenummer
         async updateOrderNumber(newOrderNumber) {
             try {
 
-                // Creates a reference to the firebase document "orderNumber" in the "orders" collection
+    
+                // vi laver en reference til ordernummer i ordre collection
                 const orderNumberDoc = db.collection("orders").doc("orderNumber");
-                // Perform the update
-                // Update the value witht the parsed ordernumber.
+            
                 await orderNumberDoc.update({ orderNumber: newOrderNumber });
 
                 console.log(`Order number updated to: ${newOrderNumber}`);

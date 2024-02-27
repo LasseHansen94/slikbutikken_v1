@@ -1,20 +1,20 @@
 import { shallowMount } from "@vue/test-utils"; 
 jest.mock('firebase/compat/app', () => ({
   initializeApp: jest.fn(() => ({
-    // Mock other Firebase services as needed
+    
     firestore: jest.fn(() => ({
-      // Mock Firestore methods if used
+      
     })),
     storage: jest.fn(() => ({
-      // Mock Storage methods if used
+      
     })),
   })),
 }));
 jest.mock('firebase/compat/firestore', () => ({
-  // Provide any mock exports here if needed
+  
 }));
 jest.mock('firebase/compat/storage', () => ({
-  // Provide any mock exports here if needed
+  
 }));
 
 import OrderProcess from '../src/components/OrderProcess.vue'; 
@@ -24,7 +24,7 @@ describe('OrderProcess.vue', () => {
 
   beforeEach(() => {
     wrapper = shallowMount(OrderProcess);
-    // Mock console.log to prevent logging during tests
+    // Mock console.log for at forhindre logging under tests
     global.console.log = jest.fn();
   });
 
@@ -42,7 +42,7 @@ describe('OrderProcess.vue', () => {
 
     await wrapper.vm.validateDataCustomer();
     expect(wrapper.vm.step).toBe(2); 
-    expect(console.log).not.toHaveBeenCalled(); // Ensure no error logs
+    expect(console.log).not.toHaveBeenCalled(); // for at siktr dig at console log ikke bliver kaldt.
   });
 
   it('tester med forkert email som skal fejle', async () => {
@@ -58,7 +58,7 @@ describe('OrderProcess.vue', () => {
     });
 
     await wrapper.vm.validateDataCustomer();
-    expect(wrapper.vm.step).toBe(1); // Should not advance due to invalid email
+    expect(wrapper.vm.step).toBe(1); // 
     expect(console.log).toHaveBeenCalledWith(expect.stringContaining("Error in email validation"));
   });
 

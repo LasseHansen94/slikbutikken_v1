@@ -1,10 +1,8 @@
 <template lang="">
     <div>
-        <h1>Candy selection</h1>
-        <p>This is a page which shows the wide range of candy selection that we offer. 
-            Add by selecting the "Add" button and see your current basket by clicking on the "basket icon" 
-            on the top right of the page
-        </p>
+        <h1>Slikudvalg</h1>
+
+            Tilføj ved at vælge 'Tilføj'-knappen, og se din nuværende kurv ved at klikke på 'kurvikonet' øverst til højre på siden.
 
         <Selection />
     </div>

@@ -31,6 +31,6 @@ export default {
 .text-container {
   width: 30%;
   border: 2px solid black; 
-  padding: 20px; 
+  padding: 10px; 
 }
 </style>

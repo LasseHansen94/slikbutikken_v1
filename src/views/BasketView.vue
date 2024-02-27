@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>
-            My basket
+            My basket 
         </h1>
 
         <Basket />

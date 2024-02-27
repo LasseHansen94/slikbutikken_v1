@@ -1,52 +1,47 @@
 <template>
   <div class="contact-container">
-    <h1>Kontaktside</h1>
-
+    <h1>Kontakt os</h1>
     <div class="contact-info">
+      
       <p>Velkommen til vores kontaktside. Her er vores oplysninger, så du kan tage kontakt til os</p>
-      <p>Vores email: slik/buttikken@gmail.com</p>
+      <p>Vores email: slikbuttikken@gmail.com</p>
       <p>Vores telefonnummer: 504783001</p>
     </div>
-  </div>
-
-  
-  <div class="sociale-medier">
-      <p>Følg os på sociale medier:</p>
+    <h2>Åbningstider</h2>
+    <div class="tider">Vores åbningstider finder du her
+      <p>Mandag-fredag: 10:00 - 17:00</p>
+      <p>Weekend: 10:00 - 19:00</p>
+    </div>
+    <div class="sociale-medier">
+      <h2>Følg os på sociale medier</h2>
       <a href="link-til-din-facebook-side">Facebook</a>
       <a href="link-til-din-instagram-profil">instagram</a>
-       </div>
+    </div>
+
+  </div>
 </template>
   
 <script>
 
-    
+
 ;
 </script>
   
 <style scoped>
-
 .contact-container {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .sociale-medier a {
-  display: inline-block;
-  margin-right: 10px;
-  color: #007BFF;
-/* Overskrift styling */
-h1 {
-  color: #a87373;
-}
-}
-/* Kontaktinformation styling */
-.contact-info {
-  margin-top: 20px;
+  color: #2e869c;
+  margin-right: 12px;
 }
 
-.contact-info p {
-  margin-bottom: 10px;
+
+.contact-container h1, 
+.contact-container h2 {
+  margin-top: 20px;
 }
 
 .contact-info a {

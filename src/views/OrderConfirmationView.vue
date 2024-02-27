@@ -1,38 +1,39 @@
 <template>
     <div class="container">
         <header class="header">
-            <h1>Confirmation of Order</h1>
-            <p>Thank you for your order. Please see the information below.</p>
+            <h1>Ordrebekræftigelse</h1>
+            <p>Tak for din ordre. her er en kvittering på dit køb.</p>
         </header>
 
         <section class="order-info">
             <div>
-                <h3>Order number:</h3>
+                <h3>Ordrenummer:</h3>
                 <p>{{ orderDocumentDetails.orderId }}</p>
             </div>
 
             <div class="customer-info">
-                <h3>Customer information:</h3>
+                <h3>Din information:</h3>
                 <p>Name: {{ orderDocumentDetails.customerDetails.customerInformation.name }}</p>
                 <p>Email: {{ orderDocumentDetails.customerDetails.customerInformation.email }}</p>
                 <p>Phone: {{ orderDocumentDetails.customerDetails.customerInformation.phone }}</p>
             </div>
 
             <div>
-                <h3>Delivery information:</h3>
-                <p>Address: {{ orderDocumentDetails.customerDetails.deliveryDetails.address }}</p>
-                <p>City: {{ orderDocumentDetails.customerDetails.deliveryDetails.city }}</p>
-                <p>Postal code: {{ orderDocumentDetails.customerDetails.deliveryDetails.postalCode }}</p>
+                <h3 class="dev-info">leveringsinformation:</h3>
+                <p>addresse: {{ orderDocumentDetails.customerDetails.deliveryDetails.address }}</p>
+                <p>By: {{ orderDocumentDetails.customerDetails.deliveryDetails.city }}</p>
+                <p>Postnummer: {{ orderDocumentDetails.customerDetails.deliveryDetails.postalCode }}</p>
             </div>
         </section>
 
         <ul class="order-items">
+            <h1>Din Ordre</h1>
             <li v-for="item in orderDocumentDetails.orderDetails" :key="item.id">
                 <div class="item">
                     <h2>{{ item.name }}</h2>
                     <div class="item-details">
-                        <p>Quantity: {{ item.quantity }} gram</p>
-                        <p>Price: {{ item.price * item.quantity }}</p>
+                        <p>Antal: {{ item.quantity }} gram</p>
+                        <p>Pris: {{ item.price * item.quantity }}</p>
                     </div>
                     <div class="item-image">
                         <img :src="item.image" alt="Item image">
@@ -66,6 +67,10 @@ export default {
 </script>
 
 <style>
+
+.dev-info {
+        
+}
 
 .customer-info {
  color: blue;

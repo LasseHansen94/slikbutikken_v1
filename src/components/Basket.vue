@@ -3,7 +3,7 @@
       <h2 class="basket-title">Basket</h2>
        <!-- Vi checker om   basket er tom ved at kigge på basket.length ikke er mindre end 1 -->
       <div v-if="basketState.basket.length < 1" class="empty-basket">
-        <h3>No items in 11the basket</h3>
+        <h3>No items in the basket</h3>
       </div>
   
       <div v-else class="basket-items">
@@ -28,6 +28,7 @@
   </template>
 
 <script>
+// vi importer vores basket komponent
 import basket from "../modules/basket";
 
 export default {
@@ -36,9 +37,11 @@ export default {
     methods: {
     // Vi looper igennem vores basket og ganger antalet med pris for til sidst at finde den samlede sum på købet.
         calculateTotalPrice(basket) {
-            console.log("TESTTEST:", basket); // to be deleted?
+            
             var sum = 0;
+            // vi laver et for loop for at gå igennem basket
             for (const item of basket) {
+              // vi ganger prisen med antallet og lægger alle varer i basket sammen for at få en total pris på basket
                 sum += (item.price * item.quantity)
             }
 

@@ -3,7 +3,7 @@
     
     <img class="home_image" src="../assets/images/home_image.png" alt="Main image">
 
-    <h1>Vores mission</h1>
+    <h1>Slikbutikken</h1>
     
     <div>
       Velkommen til Slikbutikken, <br>her stræber vi  efter at skabe en unik og lækker oplevelse midt på Vesterbro. <br>Vores mission er at glæde vores kunder med en himmelsk palet af økologisk slik, der ikke kun tilfredsstiller den søde tand, men også respekterer vores planet. <br>
@@ -11,10 +11,6 @@
 
         <br> Hos os  handler det ikke kun om at sælge slik; det handler om at dele en passion for kvalitet, bæredygtighed og glæden ved det søde liv. <br> Vi ser frem til at byde dig velkommen i vores butik eller online og dele de bedste økologiske slikoplevelser med dig.
     </div>
-
-    <!-- <button @click="test_method()">Click here</button>
-    <p @click="change_variable_text()"> Besked: {{ lasses_besked_variabel }} </p>
-    <Test :component_hidden="parent_hidden" /> -->
   </div>
 </template>
 
@@ -32,7 +28,7 @@ export default {
         return {
             message: "",
             parent_hidden: false,
-            lasses_besked_variabel: "Dette er Lasses egen text"
+                
         };
     },
 

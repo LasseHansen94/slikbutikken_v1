@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Selections</h2>
+        <h2>Udvalg</h2>
 
         <!-- 
             /** 
@@ -16,7 +16,10 @@
                 <div class="item">
                     <div class="item-name">
                         <p> {{ item.name }} </p>
-                        <p>pris per 100 gram: {{item.price}}</p>
+                    </div>
+
+                    <div class="item-price">
+                        <p>kr. {{ item.price }},00 pr 100g  </p>
                     </div>
 
                     <div class="item-image">
@@ -24,14 +27,15 @@
                     </div>
 
                     <div class="order-quantity">
-                        <p>Quantity: </p>
-                        <input v-model="item.quantity" type="number">
-                        <p> Minimum quantity is {{ item.minimum_weight }} </p>
-                        <p> Current stock is {{ item.stock }} </p>
+                        <p>Antal: </p>
+                        <input v-model="item.quantity" type="number" :min="item.minimum_weight">
+                        <p> Minimum antal er {{ item.minimum_weight }} </p>
+                        <p> Lagerbeholdning er {{ item.stock }} </p>
                     </div>
 
                     <div class="add-to-basket">
-                        <button :disabled="typeof item.quantity !== 'number'" @click="addItemToBasket(item)"> Add </button>
+                        <button :disabled="typeof item.quantity !== 'number'" @click="addItemToBasket(item)"> Tilføj
+                        </button>
                     </div>
                 </div>
             </li>
@@ -59,7 +63,7 @@ export default {
             selection: [],
             showNotification: false,
             notificationMessage: '',
-            notificationColor: 'green', // Default color
+            notificationColor: 'green',
         }
     },
     methods: {
@@ -69,7 +73,6 @@ export default {
             this.notificationColor = color;
             this.showNotification = true;
 
-            // Hide the notification after a delay
             setTimeout(() => {
                 this.showNotification = false;
             }, 3000);
@@ -77,19 +80,16 @@ export default {
 
         addItemToBasket(item) {
 
-            /**
-            * TODO: Check that 'quantity' can be converted to a number, otherwise throw error.
-            */
 
-            // If item quantity is less than minimum
+        // hvis item quantity er mindre end minimum_weight skal teksten blive rød
             if (item.quantity < item.minimum_weight) {
                 this.showTempNotification("Item quantity is lees than minimum", 'red');
-            // If item quantity is more than stock
+                // hvis skrevet antal er mere en lagerbeholdningen skal den vise en error og blive rød
             } else if (item.quantity > item.stock) {
-                this.showTempNotification("Item quantity is more than currently in stock", 'red');
-            // Item quantity is OK
+                this.showTempNotification("Der er ikke nok på lager, du må ændre på mængden, 'red');
+    
             } else {
-                this.showTempNotification(`${item.quantity}g of ${item.name} was added to basket"`, 'green');
+                this.showTempNotification(`${item.quantity}g af ${item.name} blev tilføjet til kurven"`, 'green');
                 this.addToBasket(item)
             }
 
@@ -175,22 +175,22 @@ export default {
 }
 
 .item {
+    margin-bottom: 20px;
     flex-basis: calc(33.333% - 20px);
-    /* Adjust the width of each item */
+    
     margin: 10px;
-    /* Spacing between items */
+    
     background-color: #f2f2f2;
-    /* Background color */
-    border-radius: 10px;
-    /* Rounded corners for the item */
+      border-radius: 10px;
+    
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Shadow for depth */
+    
     padding: 15px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centering content */
+    
 }
 
 .item-image img {
@@ -200,6 +200,11 @@ export default {
     /* Rounded corners for the image */
     margin-bottom: 10px;
     /* Spacing below the image */
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .item-name,

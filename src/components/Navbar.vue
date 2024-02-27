@@ -2,17 +2,19 @@
     <div class="navbar">
 
         <div class="nav-links">
+            
             <router-link to="/" class="nav-link">
-                <button class="nav-button">Home</button>
-            </router-link>
-            <router-link to="/about" class="nav-link">
-                <button class="nav-button">About Us</button>
+                <button class="nav-button">Forside</button>
             </router-link>
             <router-link to="/selection" class="nav-link">
-                <button class="nav-button">Selection</button>
+                <button class="nav-button">Udvalg</button>
             </router-link>
+            <router-link to="/about" class="nav-link">
+                <button class="nav-button">Om os</button>
+            </router-link>
+
             <router-link to="/contact" class="nav-link">
-                <button class="nav-button">Contact</button>
+                <button class="nav-button">Kontakt</button>
             </router-link>
 
 
@@ -49,7 +51,7 @@ export default {
     align-items: center;
     width: 100%;
     padding: 10px;
-    background-color: #333;
+    background-color: #40a79c;
 }
 
 .nav-links {
@@ -65,7 +67,7 @@ export default {
 }
 
 .nav-link .nav-button {
-    background-color: #555;
+    background-color: #ba3aa1;
     
     border: none;
     color: white;
