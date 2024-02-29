@@ -1,15 +1,10 @@
 <template>
-    <div>
-        <h1>
-            Min Kurv
-        </h1>
-
+    <div class="container">
+        <h1>Min Kurv</h1>
         <Basket />
         <OrderProcess></OrderProcess>
-        
-    
     </div>
-</template>
+</template>     
 
 <script>
 import Basket from "../components/Basket.vue"
@@ -31,4 +26,7 @@ export default {
 </script>
 
 <style>
+.container {
+    text-align: center; /* Centrerer indholdet vandret */
+}
 </style>

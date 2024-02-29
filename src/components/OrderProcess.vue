@@ -3,10 +3,10 @@
 
 
         <div v-if="step == 1">
-            <h1>Step 1: Customer information</h1>
+            <h1>Step 1: Din information</h1>
             <div>
 
-                <div>
+                <div class="user_inputs" >
                     <p> Skriv dit fulde navn </p>
                     <input v-model="customer.customerInformation.name">
                 </div>
@@ -259,58 +259,19 @@ export default {
 
             return true;
         },
-
-        /** 
-         * TODO: Add new database document in firebase with order details
-        */
         addOrderToDatabase(newOrderNumber) {
             console.log("Sending data to database")
 
-            /**          
-            {
-                customer (map) {
-                    customerInformation (map) {
-                        email "rasmus.email@email.com" (string),
-                        name "Rasmus Lykke" (string),
-                        phone "20132145" (string),
-                    },
-                    deliveryDetails (map) {
-                        address "Main street 8" (string),
-                        city "Aarhus" (string),
-                        country "DK" (string),
-                        postalCode 3510 (number),
-                    },
-                    paymentDetails (map) {
-                        cardNumber 125015435942 (number),
-                        expDate (map) {
-                            month 12 (number),
-                            year 13 (number),
-                        },
-                        securityCode 354 (number),
-                    },
-                },
-                orderDetails (map) {
-                    Rl3iVrdWxJZ7XGNZfJXa (map) {
-                        quantity 200 (number),
-                        selection /selection/Rl3iVrdWxJZ7XGNZfJXa (reference),
-                    },
-                    mBHOAbI5dYLNqDD4C6kb (map),
-                    quantity 150 (number),
-                    selection /selection/mBHOAbI5dYLNqDD4C6kb (reference),
-                },
-                orderNumber "0000000000" 
-            }
-            */
             let order = {
-                orderId: newOrderNumber, // Assuming newOrderNumber is defined elsewhere in your code
+                orderId: newOrderNumber,
                 orderDetails: this.basketState.basket.reduce((acc, item) => {
                     console.log("ITEMNAME:: ", item);
                     acc[item.id] = {
-                        quantity: item.quantity, // Assuming each item in basket has a quantity property
+                        quantity: item.quantity,
                         name: item.name,
                         price: item.price,
                         image: item.image,
-                        selection: db.doc(`/selection/${item.id}`) // Creating a Firestore reference
+                        selection: db.doc(`/selection/${item.id}`) // Vi laver en firestone reference
                     };
                     return acc;
                 }, {}),
@@ -348,14 +309,9 @@ export default {
         },
 
         /** 
-         * TODO: Inform user about successful order, (Could be by email or order confirmation page)
         */
         successfulOrder(order) {
-            /** 
-             * TODO:  Send email to customer with orderDocumentDetails.orderID
-            */
-
-            // Redirect cutomer to successful order page.
+            console.log("success")
             this.$router.push({ name: 'orderConfirmation', query: { orderDocumentDetails: JSON.stringify(order) } });
 
         },
@@ -372,4 +328,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+
+</style>

@@ -29,7 +29,7 @@ export default {
 
     methods: {
         closePopup() {
-            this.$emit('close'); // Sends a Vue.js '$emit' call to parent (components/Navbar.vue) to run the @close action which sets "showPopup" to false
+            this.$emit('close'); // "Sender et Vue.js '$emit' kald til forældren (komponenten Navbar.vue) for at køre @close handlingen, som sætter "showPopup" til false."
         }
     },
 
@@ -44,7 +44,9 @@ export default {
 
 <style>
 .popup {
+    overflow-y: auto; 
     position: fixed;
+    max-height: 60%; 
     background-color: white;
     border: 1px solid #ddd;
     padding: 20px;
@@ -56,12 +58,11 @@ export default {
 .button-container {
     margin-top: 30px;
     display: flex;
-    /* Enables Flexbox */
+
     justify-content: center;
-    /* Centers the buttons horizontally */
+
     align-items: center;
-    /* Aligns the buttons vertically */
+
     gap: 10px;
-    /* Adds space between the buttons */
 }
 </style>

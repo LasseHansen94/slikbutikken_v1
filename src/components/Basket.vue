@@ -1,6 +1,6 @@
 <template>
     <div class="basket-overview">
-       <!-- Vi checker om   basket er tom ved at kigge på basket.length ikke er mindre end 1 -->
+       <!-- Vi checker om   basket er tom ved at kigge på basket.length  er mindre end 1 -->
       <div v-if="basketState.basket.length < 1" class="empty-basket">
         <h3>ingen varer i kurven</h3>
       </div>

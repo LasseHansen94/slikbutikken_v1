@@ -3,7 +3,6 @@
     
     <img class="home_image" src="../assets/images/home_image.png" alt="Main image">
 
-    <h1>Slikbutikken</h1>
     
     <div>
       Velkommen til Slikbutikken, <br>her stræber vi  efter at skabe en unik og lækker oplevelse midt på Vesterbro. <br>Vores mission er at glæde vores kunder med en himmelsk palet af økologisk slik, der ikke kun tilfredsstiller den søde tand, men også respekterer vores planet. <br>
@@ -34,20 +33,12 @@ export default {
 
 
     methods: {
-        test_method() {
-
-            if (this.parent_hidden == false) {
-                this.parent_hidden = true
-            } else {
-                this.parent_hidden = false
-            }
+        
         },
 
-        change_variable_text() {
-            this.lasses_besked_variabel = "Nu er der lavet om på texten i 'lasses_besked_variabel'"
-        }
+        
     }
-}
+
 </script>
 
 <style lang="css">

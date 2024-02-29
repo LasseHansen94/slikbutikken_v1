@@ -55,7 +55,7 @@ export default {
             selection: [],
             showNotification: false,
             notificationMessage: '',
-            notificationColor: 'green', // Default color
+            notificationColor: 'green', 
         }
     },
     methods: {
@@ -65,7 +65,7 @@ export default {
             this.notificationColor = color;
             this.showNotification = true;
 
-            // Hide the notification after a delay
+            // skjul notifikationen efter et stykke tid
             setTimeout(() => {
                 this.showNotification = false;
             }, 3000);
@@ -73,45 +73,22 @@ export default {
 
         addItemToBasket(item) {
 
-            /**
-            * TODO: Check that 'quantity' can be converted to a number, otherwise throw error.
-            */
-
-            // If item quantity is less than minimum
+            
+        // hvis quantity er mindre end minimum gør den rød
             if (item.quantity < item.minimum_weight) {
-                this.showTempNotification("Item quantity is lees than minimum", 'red');
-            // If item quantity is more than stock
-            } else if (item.quantity > item.stock) {
-                this.showTempNotification("Item quantity is more than currently in stock", 'red');
-            // Item quantity is OK
+                this.showTempNotification("du skal vælge en mængde større end", item.minimum_weight, 'red');
+            // If item quantity er større en lager
+            } else if (item.quantity > item.stock) {this.showTempNotification("Der er kun " + item.stock + " tilbage på lager.", 'red');
+
+            // Item quantity er OK
             } else {
-                this.showTempNotification(`${item.quantity}g of ${item.name} was added to basket"`, 'green');
+                this.showTempNotification(`${item.quantity} gram ${item.name} Blev tilføjet til kurven"`, 'green');
                 this.addToBasket(item)
             }
 
         },
 
 
-        addToDatabase() { // Eksempel på hvordan du kan tilføje en ny ting til en firebase database
-            // Create a reference to the 'categories/vingummi' document
-            var categoryRef = db.collection("categories").doc("lakrids");
-
-            db.collection("selection")
-                .add({
-                    name: `Sukker lakrids`,
-                    price: `12`,
-                    minimum_weight: `14`,
-                    stock: `1400`,
-                    category: categoryRef // Add the reference here
-
-                })
-                .then((response) => {
-                    console.log("Document successfully written!");
-                })
-                .catch((error) => {
-                    console.error("Error writing document: ", error);
-                });
-        }
     },
 
     setup() {
@@ -150,7 +127,7 @@ export default {
                             });
                         })
                         .catch((error) => {
-                            // Handle any errors
+                            // for at håndtere mulige errors
                             console.error("Error fetching download URL:", error);
                             throw error;
                         });
@@ -289,4 +266,3 @@ button:disabled {
     cursor: not-allowed;
 }
 </style>
-.

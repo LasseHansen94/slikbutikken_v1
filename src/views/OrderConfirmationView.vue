@@ -32,8 +32,8 @@
                 <div class="item">
                     <h2>{{ item.name }}</h2>
                     <div class="item-details">
-                        <p>Antal: {{ item.quantity }} gram</p>
-                        <p>Pris: {{ item.price * item.quantity }}</p>
+                        <p>mængde: {{ item.quantity }} </p>
+                        <p> &nbsp;Pris: {{ item.price * item.quantity }} kr.</p>
                     </div>
                     <div class="item-image">
                         <img :src="item.image" alt="Item image">
@@ -67,14 +67,13 @@ export default {
 </script>
 
 <style>
-
-.dev-info {
-        
+h1 {
+    text-align: center;
 }
 
 .customer-info {
- color: blue;
- border: 5px , solid black;
+    color: blue;
+    border: 5px, solid black;
 }
 
 .container {
@@ -152,5 +151,4 @@ export default {
 .order-items li .item-details p {
     margin: 0;
 }
-
 </style>
