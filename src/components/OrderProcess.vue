@@ -21,7 +21,7 @@
             </div>
 
             <div>
-                <button type="button" @click="validateDataCustomer()">Next</button>
+                <button type="button" @click="validateDataCustomer()">Videre</button>
             </div>
         </div>
 
@@ -94,20 +94,21 @@ export default {
 
     name: "OderProcess",
 
+
     data() {
         return {
             step: 1,
             customer: {
                 customerInformation: {
-                    name: "Test user",
-                    phone: "22334455",
-                    email: "testemail@email.com",
+                    name: "Lasse Hansen",
+                    phone: "50478301",
+                    email: "lasse.bjoern@email.dk",
                 },
 
                 deliveryDetails: {
-                    address: "Test street 23",
-                    city: "Test city",
-                    postalCode: "2400",
+                    address: "Roddinggade 8",
+                    city: "Vesterbro",
+                    postalCode: "1620",
                     country: "DK",
                 },
 
@@ -151,7 +152,8 @@ export default {
 
         validateDataDelivery() {
 
-            if (! /^[A-Za-z ]+\s\d+$/.test(this.customer.deliveryDetails.address)) {
+
+            if (! /^\S+\s\d+$/.test(this.customer.deliveryDetails.address)) {
                 console.log("Error in address validation");
                 return false;
             } else if (! /^[A-Za-z ]+$/.test(this.customer.deliveryDetails.city)) {

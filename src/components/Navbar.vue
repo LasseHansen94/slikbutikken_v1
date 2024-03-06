@@ -24,8 +24,7 @@
             <Popup :isVisible="showPopup" @close="showPopup = false" />
         </div>
     </div>
-</template>
-<script>
+</template><script>
 
 import Popup from './Popup.vue';
 

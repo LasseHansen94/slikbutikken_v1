@@ -1,13 +1,19 @@
 <template>
     <div class="app-container">
         <Navbar />
+        
+
         <router-view class="router-view" />
+        <Footer />
+
     </div>
 </template>
 
 
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+
+import Footer from './components/Footer.vue'
 
 import Navbar from './components/Navbar.vue'
 import basket from "./modules/basket";
@@ -17,6 +23,7 @@ export default {
 
     components: {
         Navbar,
+        Footer,
     },
 
     setup() {
@@ -50,4 +57,4 @@ body,
 
 .router-view {
     margin: 20px;
-}</style>
+}</style>./components/Footer.vue

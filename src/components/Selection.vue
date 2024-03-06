@@ -21,7 +21,7 @@
                     <div class="order-quantity">
                         <p>Antal: </p>
                         <input v-model="item.quantity" type="number" :min="item.minimum_weight">
-                        <p> Minimum antal er {{ item.minimum_weight }} </p>
+                        <p> Minimum bestilling er {{ item.minimum_weight }} </p>
                         <p> Lagerbeholdning er {{ item.stock }} </p>
                     </div>
 
@@ -82,7 +82,7 @@ export default {
 
             // Item quantity er OK
             } else {
-                this.showTempNotification(`${item.quantity} gram ${item.name} Blev tilføjet til kurven"`, 'green');
+                this.showTempNotification(`${item.quantity} stk ${item.name} blev tilføjet til kurven"`, 'green');
                 this.addToBasket(item)
             }
 
@@ -128,13 +128,13 @@ export default {
                         })
                         .catch((error) => {
                             // for at håndtere mulige errors
-                            console.error("Error fetching download URL:", error);
+                            console.error("Error med at downloade url:", error);
                             throw error;
                         });
                 });
             })
             .catch((error) => {
-                console.log("Error getting documents: ", error);
+                console.log("Fejl i at skaffe dokumntet: ", error);
             });
     },
 }
@@ -170,9 +170,7 @@ export default {
     width: 100px;
     height: auto;
     border-radius: 50%;
-    /* Rounded corners for the image */
     margin-bottom: 10px;
-    /* Spacing below the image */
 }
 
 .item-name {
@@ -184,17 +182,17 @@ export default {
 .order-quantity,
 .add-to-basket {
     text-align: center;
-    /* Center aligning the text */
+    
     width: 100%;
-    /* Full width */
+   
     margin-bottom: 10px;
-    /* Spacing inside the item */
+    
 }
 
 
 .add-to-basket button {
     background-color: #4CAF50;
-    /* Button color */
+   
     color: white;
     border: none;
     padding: 10px 20px;
@@ -203,44 +201,44 @@ export default {
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
-    /* Rounded button */
+    
     cursor: pointer;
 }
 
 .add-to-basket button:hover {
     background-color: #45a049;
-    /* Button hover effect */
+    
 }
 
 
 .order-quantity input[type="number"] {
     width: 60%;
-    /* Adjust the width of the input field */
+   
     padding: 8px;
-    /* Padding for better touch area and visual appeal */
+    
     margin: 5px 0;
-    /* Margin for spacing */
+    
     display: inline-block;
-    /* Inline display */
+    
     border: 1px solid #ccc;
-    /* Border styling */
+    
     border-radius: 4px;
-    /* Rounded corners for the input field */
+    
     box-sizing: border-box;
-    /* Box sizing to maintain the width including padding and borders */
+    
 }
 
 .order-quantity input[type="number"]:focus {
     outline: none;
     border-color: #4CAF50;
-    /* Highlight color when focused */
+    
     box-shadow: 0 0 8px 0 rgba(76, 175, 80, 0.5);
-    /* Subtle shadow when focused */
+   
 }
 
 .order-quantity input[type="number"]:invalid {
     border-color: red;
-    /* Red border color for invalid input */
+    
 }
 
 .notification {
