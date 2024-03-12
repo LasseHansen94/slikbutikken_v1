@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <header class="header">
-            <h1>Ordrebekræftigelse</h1>
+            <h1>Ordrebekræftelse</h1>
             <p>Tak for din ordre. her er en kvittering på dit køb.</p>
         </header>
 

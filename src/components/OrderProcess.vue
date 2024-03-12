@@ -102,7 +102,7 @@ export default {
                 customerInformation: {
                     name: "Lasse Hansen",
                     phone: "50478301",
-                    email: "lasse.bjoern@email.dk",
+                    email: "lasse.bjoern@hotmail.dk",
                 },
 
                 deliveryDetails: {
