@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Udvalg</h2>
+
 
         
         <ul class="items-container">

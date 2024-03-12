@@ -21,7 +21,7 @@
 
     <div class="total-price">
       <!-- her kører vi vores funktion calculateTotalPrice  som er defineret længere nede for at finde prisen på alle varer-->
-      <h1>Samlet Pris: {{ calculateTotalPrice(basketState.basket) }}</h1>
+      <h1>Samlet Pris: kr. {{ calculateTotalPrice(basketState.basket) }}</h1>
     </div>
   </div>
 </template>
